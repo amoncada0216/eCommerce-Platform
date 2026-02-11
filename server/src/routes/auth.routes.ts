@@ -1,52 +1,28 @@
 import { Router } from "express";
-import { generateToken } from "../lib/jwt.js";
-
 import bcrypt from "bcrypt";
 
 import prisma from "../lib/prisma.js";
-import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
+import { generateToken } from "../lib/jwt.js";
+
 import { authMiddleware } from "../middleware/auth.middleware.js";
+import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
+import { registerSchema } from "../validators/auth.validator.js";
 
 const router = Router();
 
-// Email requirements:
-// - One or more allowed characters before @ → letters, numbers, ., _, %, +, -
-// - Must contain a single @
-// - Domain name allows letters, numbers, dots and hyphens
-// - Must contain a dot (.) after domain
-// - Top-level domain must be at least 2 letters (e.g., .com, .net)
-const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-
-// Password requirements:
-// - Minimum 8 characters
-// - At least one lowercase letter
-// - At least one uppercase letter
-// - At least one number
-// - At least one special character from: @$!%*?&
-// - Only allows letters, numbers, and the listed special characters
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
 router.post("/register", async (req, res) => {
-  let { email, password } = req.body;
+  const result = registerSchema.safeParse(req.body);
 
-  if (!email || !password) {
-    return res.status(400).json({ message: "Email and password required." });
+  if (!result.success) {
+    return res.status(400).json({
+      errors: result.error.issues.map((issue) => ({
+        field: issue.path[0],
+        message: issue.message,
+      })),
+    });
   }
 
-  if (typeof email !== "string" || typeof password !== "string") {
-    return res.status(400).json({ message: "Email is not valid." });
-  }
-
-  email = email.trim().toLowerCase();
-  password = password.trim();
-
-  if (!emailRegex.test(email)) {
-    return res.status(400).json({ message: "Email is not valid." });
-  }
-
-  if (!passwordRegex.test(password)) {
-    return res.status(400).json({ message: "Password is not valid." });
-  }
+  const { email, password } = result.data;
 
   try {
     const existingUser = await prisma.user.findUnique({
