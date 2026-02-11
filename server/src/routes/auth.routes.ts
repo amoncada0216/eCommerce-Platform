@@ -6,25 +6,25 @@ import { generateToken } from "../lib/jwt.js";
 
 import { authMiddleware } from "../middleware/auth.middleware.js";
 import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
-import { registerSchema } from "../validators/auth.validator.js";
+import { changePasswordSchema, registerSchema } from "../validators/auth.validator.js";
 
 const router = Router();
 
 router.post("/register", async (req, res) => {
-  const result = registerSchema.safeParse(req.body);
-
-  if (!result.success) {
-    return res.status(400).json({
-      errors: result.error.issues.map((issue) => ({
-        field: issue.path[0],
-        message: issue.message,
-      })),
-    });
-  }
-
-  const { email, password } = result.data;
-
   try {
+    const result = registerSchema.safeParse(req.body);
+
+    if (!result.success) {
+      return res.status(400).json({
+        errors: result.error.issues.map((issue) => ({
+          field: issue.path[0],
+          message: issue.message,
+        })),
+      });
+    }
+
+    const { email, password } = result.data;
+
     const existingUser = await prisma.user.findUnique({
       where: { email },
     });
@@ -39,10 +39,11 @@ router.post("/register", async (req, res) => {
       data: {
         email,
         passwordHash: hashedPassword,
+        tokenVersion: 0,
       },
     });
 
-    const token = generateToken(newUser.id);
+    const token = generateToken(newUser.id, newUser.tokenVersion);
 
     res.cookie("token", token, {
       httpOnly: true,
@@ -91,6 +92,7 @@ router.post("/login", async (req, res) => {
         id: true,
         email: true,
         passwordHash: true,
+        tokenVersion: true,
       },
     });
 
@@ -104,7 +106,7 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Incorrect credentials." });
     }
 
-    const token = generateToken(existingUser.id);
+    const token = generateToken(existingUser.id, existingUser.tokenVersion);
 
     res.cookie("token", token, {
       httpOnly: true,
@@ -128,6 +130,69 @@ router.delete("/logout", async (_, res) => {
     });
 
     return res.status(200).json({ message: "Logged out." });
+  } catch (error) {
+    return res.status(500).json({ message: "Server error." });
+  }
+});
+
+router.post("/change-password", authMiddleware, async (req: AuthenticatedRequest, res) => {
+  try {
+    const result = changePasswordSchema.safeParse(req.body);
+
+    if (!result.success) {
+      return res.status(400).json({
+        errors: result.error.issues.map((issue) => ({
+          field: issue.path[0],
+          message: issue.message,
+        })),
+      });
+    }
+
+    const { currentPassword, newPassword } = result.data;
+
+    if (!req.userId) {
+      return res.status(401).json({ message: "401 Unauthorized" });
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { id: req.userId },
+      select: { id: true, passwordHash: true, tokenVersion: true },
+    });
+
+    if (!user) {
+      return res.status(401).json({ message: "401 Unauthorized" });
+    }
+
+    const isValid = await bcrypt.compare(currentPassword, user.passwordHash);
+
+    if (!isValid) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    const updatedUser = await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        passwordHash: hashedPassword,
+        tokenVersion: { increment: 1 },
+      },
+      select: {
+        id: true,
+        tokenVersion: true,
+      },
+    });
+
+    const token = generateToken(updatedUser.id, updatedUser.tokenVersion);
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: false, // true in production
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
+    return res.status(200).json({ message: "Password updated successfully." });
   } catch (error) {
     return res.status(500).json({ message: "Server error." });
   }

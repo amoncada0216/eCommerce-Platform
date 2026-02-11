@@ -6,6 +6,6 @@ if (!JWT_SECRET) {
   throw new Error("JWT_SECRET not defined");
 }
 
-export function generateToken(userId: string) {
-  return jwt.sign({ userId }, JWT_SECRET, { expiresIn: "7d" });
+export function generateToken(userId: string, tokenVersion: number) {
+  return jwt.sign({ userId, tokenVersion }, JWT_SECRET, { expiresIn: "7d" });
 }
