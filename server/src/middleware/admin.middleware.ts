@@ -1,0 +1,10 @@
+import type { Response, NextFunction } from "express";
+import type { AuthenticatedRequest } from "./auth.middleware.js";
+
+export function requireAdmin(req: AuthenticatedRequest, res: Response, next: NextFunction) {
+  if (req.role !== "ADMIN") {
+    return res.status(403).json({ message: "Forbidden" });
+  }
+
+  next();
+}

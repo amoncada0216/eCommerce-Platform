@@ -1,11 +1,14 @@
 import type { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
+
+import { Role } from "@prisma/client";
 import prisma from "../lib/prisma.js";
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
 
 export interface AuthenticatedRequest extends Request {
   userId?: string;
+  role?: "USER" | "ADMIN";
 }
 
 export async function authMiddleware(req: AuthenticatedRequest, res: Response, next: NextFunction) {
@@ -16,7 +19,7 @@ export async function authMiddleware(req: AuthenticatedRequest, res: Response, n
   }
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string; tokenVersion: number };
+    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string; tokenVersion: number; role: Role };
 
     const user = await prisma.user.findUnique({
       where: { id: decoded.userId },
@@ -32,7 +35,8 @@ export async function authMiddleware(req: AuthenticatedRequest, res: Response, n
     }
 
     req.userId = decoded.userId;
-    
+    req.role = decoded.role;
+
     next();
   } catch (error) {
     return res.status(401).json({ message: "401 Unauthorized" });
