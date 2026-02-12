@@ -8,6 +8,8 @@ import { authMiddleware } from "../middleware/auth.middleware.js";
 import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
 import { changePasswordSchema, registerSchema } from "../validators/auth.validator.js";
 
+import { Role } from "@prisma/client";
+
 const router = Router();
 
 router.post("/register", async (req, res) => {
@@ -40,10 +42,11 @@ router.post("/register", async (req, res) => {
         email,
         passwordHash: hashedPassword,
         tokenVersion: 0,
+        role: Role.USER,
       },
     });
 
-    const token = generateToken(newUser.id, newUser.tokenVersion);
+    const token = generateToken(newUser.id, newUser.tokenVersion, newUser.role);
 
     res.cookie("token", token, {
       httpOnly: true,
@@ -93,6 +96,7 @@ router.post("/login", async (req, res) => {
         email: true,
         passwordHash: true,
         tokenVersion: true,
+        role: true,
       },
     });
 
@@ -106,7 +110,7 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Incorrect credentials." });
     }
 
-    const token = generateToken(existingUser.id, existingUser.tokenVersion);
+    const token = generateToken(existingUser.id, existingUser.tokenVersion, existingUser.role);
 
     res.cookie("token", token, {
       httpOnly: true,
@@ -180,10 +184,11 @@ router.post("/change-password", authMiddleware, async (req: AuthenticatedRequest
       select: {
         id: true,
         tokenVersion: true,
+        role: true,
       },
     });
 
-    const token = generateToken(updatedUser.id, updatedUser.tokenVersion);
+    const token = generateToken(updatedUser.id, updatedUser.tokenVersion, updatedUser.role);
 
     res.cookie("token", token, {
       httpOnly: true,

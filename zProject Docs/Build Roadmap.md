@@ -18,13 +18,13 @@
 
 ## Phase 2 — Authentication System
 
-- [ ] Implement password hashing (bcrypt)
-- [ ] Register endpoint
-- [ ] Login endpoint
-- [ ] JWT generation
-- [ ] Auth middleware (protect routes)
+- [x] Implement password hashing (bcrypt)
+- [x] Register endpoint
+- [x] Login endpoint
+- [x] JWT generation
+- [x] Auth middleware (protect routes)
 - [ ] Role-based admin middleware
-- [ ] Test with Postman
+- [x] Test with Postman
 
 **Goal:** Secure login + protected routes working
 
