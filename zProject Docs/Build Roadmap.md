@@ -34,7 +34,7 @@
 
 - [x] Admin: Create product
 - [x] Admin: Update product
-- [ ] Public: List products
+- [ ] Public: List products (with pagination)
 - [ ] Public: Get single product
 - [ ] Add validation layer
 
@@ -122,3 +122,8 @@
 - [ ] Deploy frontend
 
 **Goal:** Production-ready system
+
+
+## To implement
+
+- Bulk-add products feature

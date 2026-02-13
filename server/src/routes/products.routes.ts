@@ -2,7 +2,11 @@ import { Router } from "express";
 
 import { authMiddleware, type AuthenticatedRequest } from "../middleware/auth.middleware.js";
 import { requireAdmin } from "../middleware/admin.middleware.js";
-import { createProductSchema, updateProductSchema } from "../validators/product.validator.js";
+import {
+  createProductSchema,
+  listProductsQuerySchema,
+  updateProductSchema,
+} from "../validators/product.validator.js";
 import prisma from "../lib/prisma.js";
 
 import { Prisma } from "@prisma/client";
@@ -23,7 +27,7 @@ router.post("/add", authMiddleware, requireAdmin, async (req: AuthenticatedReque
       });
     }
 
-    const { name, description, price, stock, imageUrl } = result.data;
+    const { name, brand, description, price, stock, imageUrl } = result.data;
 
     const slug = name
       .toLowerCase()
@@ -35,6 +39,7 @@ router.post("/add", authMiddleware, requireAdmin, async (req: AuthenticatedReque
       data: {
         name,
         slug,
+        brand,
         description,
         price: new Prisma.Decimal(price),
         stock,
@@ -87,6 +92,10 @@ router.put("/:id", authMiddleware, requireAdmin, async (req: AuthenticatedReques
         .replace(/[^\w-]+/g, "");
     }
 
+    if (data.brand !== undefined) {
+      updateData.brand = data.brand;
+    }
+
     if (data.description !== undefined) {
       updateData.description = data.description;
     }
@@ -127,7 +136,5 @@ router.put("/:id", authMiddleware, requireAdmin, async (req: AuthenticatedReques
     return res.status(500).json({ message: "Server error." });
   }
 });
-
-
 
 export default router;

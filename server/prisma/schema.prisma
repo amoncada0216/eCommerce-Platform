@@ -32,6 +32,7 @@ model Product {
   id          String  @id @default(uuid())
   name        String
   slug        String  @unique
+  brand       String
   description String
   price       Decimal @db.Decimal(10, 2)
   stock       Int
@@ -43,4 +44,5 @@ model Product {
 
   @@index([isActive])
   @@index([createdAt])
+  @@index([brand])
 }
