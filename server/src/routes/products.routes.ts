@@ -191,4 +191,42 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Get product by slug
+router.get("/:slug", async (req, res) => {
+  try {
+    const { slug } = req.params;
+
+    if (!slug || Array.isArray(slug)) {
+      return res.status(400).json({ message: "Invalid product slug." });
+    }
+
+    const product = await prisma.product.findFirst({
+      where: {
+        slug,
+        isActive: true,
+      },
+      select: {
+        id: true,
+        name: true,
+        slug: true,
+        brand: true,
+        description: true,
+        price: true,
+        imageUrl: true,
+        stock: true,
+      },
+    });
+
+    if (!product) {
+      return res.status(404).json({ message: "Product not found." });
+    }
+
+    return res.status(200).json(product);
+
+  } catch (error) {
+    return res.status(500).json({ message: "Server error." });
+  }
+});
+
+
 export default router;
