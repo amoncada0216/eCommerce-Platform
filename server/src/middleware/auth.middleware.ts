@@ -8,7 +8,7 @@ const JWT_SECRET = process.env.JWT_SECRET as string;
 
 export interface AuthenticatedRequest extends Request {
   userId?: string;
-  role?: "USER" | "ADMIN";
+  role?: "USER" | "ADMIN"
 }
 
 export async function authMiddleware(req: AuthenticatedRequest, res: Response, next: NextFunction) {

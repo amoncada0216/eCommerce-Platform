@@ -3,6 +3,8 @@ import type { AuthenticatedRequest } from "./auth.middleware.js";
 
 export function requireAdmin(req: AuthenticatedRequest, res: Response, next: NextFunction) {
   if (req.role !== "ADMIN") {
+    console.log("ROLE:", req.role);
+    
     return res.status(403).json({ message: "Forbidden" });
   }
 
