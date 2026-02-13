@@ -215,3 +215,30 @@ export async function decreaseCartItem(req: AuthenticatedRequest, res: Response)
     return res.status(500).json({ message: "Server error." });
   }
 }
+
+export async function getCurrentCart(req: AuthenticatedRequest, res: Response) {
+  try {
+    if (!req.userId) {
+      return res.status(401).json({ message: "401 Unauthorized" });
+    }
+
+    const cart = await prisma.cart.findUnique({
+      where: { userId: req.userId },
+      include: {
+        items: {
+          include: {
+            product: true,
+          },
+        },
+      },
+    });
+
+    if (!cart) {
+      return res.status(200).json({ items: [] });
+    }
+
+    return res.status(200).json(cart);
+  } catch {
+    return res.status(500).json({ message: "Server error." });
+  }
+}
