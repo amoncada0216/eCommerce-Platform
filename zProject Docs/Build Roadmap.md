@@ -40,8 +40,8 @@
 - [x] Create CartItem model
 - [x] Add to cart 
 - [x] Increase cart item
-- [ ] Decrease cart item
-- [ ] Remove item
+- [x] Decrease cart item
+- [x] Remove item
 - [ ] Get current cart
 - [ ] Attach cart to authenticated user
 

@@ -4,7 +4,7 @@ import prisma from "../lib/prisma.js";
 import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
 import { addToCartSchema } from "../validators/cart.validator.js";
 
-export async function addItemToCart(req: AuthenticatedRequest, res: Response) {
+export async function addCartItem(req: AuthenticatedRequest, res: Response) {
   try {
     const result = addToCartSchema.safeParse(req.body);
 
@@ -72,6 +72,47 @@ export async function addItemToCart(req: AuthenticatedRequest, res: Response) {
 
     return res.status(200).json({ message: "Added to cart." });
   } catch (error) {
+    return res.status(500).json({ message: "Server error." });
+  }
+}
+
+export async function removeCartItem(req: AuthenticatedRequest, res: Response) {
+  try {
+    const itemIdParam = req.params.id;
+
+    if (!itemIdParam || Array.isArray(itemIdParam)) {
+      return res.status(400).json({ message: "Invalid item id." });
+    }
+
+    const itemId = itemIdParam;
+
+    if (!itemId) {
+      return res.status(400).json({ message: "Invalid item id." });
+    }
+
+    if (!req.userId) {
+      return res.status(401).json({ message: "401 Unauthorized" });
+    }
+
+    const cartItem = await prisma.cartItem.findUnique({
+      where: { id: itemId },
+      include: { cart: true },
+    });
+
+    if (!cartItem) {
+      return res.status(404).json({ message: "Cart item not found." });
+    }
+
+    if (cartItem.cart.userId !== req.userId) {
+      return res.status(403).json({ message: "Forbidden." });
+    }
+
+    await prisma.cartItem.delete({
+      where: { id: itemId },
+    });
+
+    return res.status(200).json({ message: "Item removed." });
+  } catch {
     return res.status(500).json({ message: "Server error." });
   }
 }
