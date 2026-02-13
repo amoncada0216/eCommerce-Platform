@@ -36,7 +36,7 @@
 - [x] Admin: Update product
 - [x] Public: List products (with pagination)
 - [x] Public: Get single product
-- [ ] Add validation layer
+- [x] Add validation layer
 
 **Goal:** Product CRUD fully functional, no delete -> isActive = true/false
 

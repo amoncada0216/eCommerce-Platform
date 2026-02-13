@@ -49,3 +49,11 @@ export const listProductsQuerySchema = z.object({
       message: "Limit must be between 1 and 50",
     }),
 });
+
+export const productSlugParamSchema = z.object({
+  slug: z
+    .string()
+    .min(3, "Slug too short")
+    .max(200, "Slug too long")
+    .regex(/^[a-z0-9-]+$/, "Invalid slug format"),
+});

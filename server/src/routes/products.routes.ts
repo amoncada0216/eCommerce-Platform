@@ -5,6 +5,7 @@ import { requireAdmin } from "../middleware/admin.middleware.js";
 import {
   createProductSchema,
   listProductsQuerySchema,
+  productSlugParamSchema,
   updateProductSchema,
 } from "../validators/product.validator.js";
 import prisma from "../lib/prisma.js";
@@ -194,11 +195,18 @@ router.get("/", async (req, res) => {
 // Get product by slug
 router.get("/:slug", async (req, res) => {
   try {
-    const { slug } = req.params;
+    const result = productSlugParamSchema.safeParse(req.params);
 
-    if (!slug || Array.isArray(slug)) {
-      return res.status(400).json({ message: "Invalid product slug." });
+    if (!result.success) {
+      return res.status(400).json({
+        errors: result.error.issues.map((issue) => ({
+          field: issue.path[0],
+          message: issue.message,
+        })),
+      });
     }
+
+    const { slug } = result.data;
 
     const product = await prisma.product.findFirst({
       where: {
@@ -222,11 +230,9 @@ router.get("/:slug", async (req, res) => {
     }
 
     return res.status(200).json(product);
-
   } catch (error) {
     return res.status(500).json({ message: "Server error." });
   }
 });
-
 
 export default router;
