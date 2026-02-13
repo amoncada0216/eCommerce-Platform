@@ -2,8 +2,9 @@ import express from "express";
 import cookieParser from "cookie-parser";
 
 import prisma from "./lib/prisma.js";
-import authRoutes from "./routes/auth.routes.js";
-import productRoutes from "./routes/products.routes.js";
+import authRouter from "./routes/auth.routes.js";
+import productRouter from "./routes/product.routes.js";
+import cartRouter from "./routes/cart.routes.js";
 
 const app = express();
 
@@ -19,7 +20,8 @@ app.get("/api/v1/health", async (_, res) => {
   }
 });
 
-app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/products", productRoutes);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/products", productRouter);
+app.use("/api/v1/cart", cartRouter);
 
 export default app;

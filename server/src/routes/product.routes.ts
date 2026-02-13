@@ -7,12 +7,12 @@ import {
   getProductBySlug,
   getProducts,
   updateProduct,
-} from "../controllers/products.controllers.js";
+} from "../controllers/product.controller.js";
 
 const router = Router();
 
 // Create new product
-router.post("/add", authMiddleware, requireAdmin, createProduct);
+router.post("/add-to-db", authMiddleware, requireAdmin, createProduct);
 
 // Update product
 router.put("/:id", authMiddleware, requireAdmin, updateProduct);
