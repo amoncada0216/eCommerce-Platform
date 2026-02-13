@@ -9,6 +9,7 @@ import {
   productSlugParamSchema,
   updateProductSchema,
 } from "../validators/product.validator.js";
+import { generateUniqueSlug } from "../utils/slug.js";
 
 export async function createProduct(req: AuthenticatedRequest, res: Response) {
   try {
@@ -25,11 +26,7 @@ export async function createProduct(req: AuthenticatedRequest, res: Response) {
 
     const { name, brand, description, price, stock, imageUrl } = result.data;
 
-    const slug = name
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, "-")
-      .replace(/[^\w-]+/g, "");
+    const slug = await generateUniqueSlug(name);
 
     const product = await prisma.product.create({
       data: {
