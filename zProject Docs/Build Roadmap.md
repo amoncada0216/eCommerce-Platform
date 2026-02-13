@@ -42,8 +42,7 @@
 - [x] Increase cart item
 - [x] Decrease cart item
 - [x] Remove item
-- [ ] Get current cart
-- [ ] Attach cart to authenticated user
+- [x] Get current cart
 
 **Goal:** Persistent cart per user
 
