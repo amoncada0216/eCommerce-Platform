@@ -1,4 +1,4 @@
-import type { Request, Response } from "express";
+import type { Response } from "express";
 
 import prisma from "../lib/prisma.js";
 import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
@@ -74,4 +74,55 @@ export async function addItemToCart(req: AuthenticatedRequest, res: Response) {
   } catch (error) {
     return res.status(500).json({ message: "Server error." });
   }
+}
+
+export async function increaseCartItem(req: AuthenticatedRequest, res: Response) {
+  try {
+    const itemIdParam = req.params.id;
+
+    if (!itemIdParam || Array.isArray(itemIdParam)) {
+      return res.status(400).json({ message: "Invalid item id." });
+    }
+
+    const itemId = itemIdParam;
+
+    if (!req.userId) {
+      return res.status(401).json({ message: "401 Unauthorized" });
+    }
+
+    const cartItem = await prisma.cartItem.findUnique({
+      where: { id: itemId },
+      include: {
+        cart: true,
+        product: true,
+      },
+    });
+
+    if (!cartItem) {
+      return res.status(404).json({ message: "Cart item not found." });
+    }
+
+    if (cartItem.cart.userId !== req.userId) {
+      return res.status(403).json({ message: "Forbidden." });
+    }
+
+    if (cartItem.quantity + 1 > cartItem.product.stock) {
+      return res.status(400).json({ message: "Insufficient stock." });
+    }
+
+    await prisma.cartItem.update({
+      where: { id: itemId },
+      data: {
+        quantity: { increment: 1 },
+      },
+    });
+
+    return res.status(200).json({ message: "Cart updated." });
+  } catch (error) {
+    return res.status(500).json({ message: "Server error." });
+  }
+}
+
+export async function decreaseCartItem(req: AuthenticatedRequest, res: Response) {  
+ 
 }

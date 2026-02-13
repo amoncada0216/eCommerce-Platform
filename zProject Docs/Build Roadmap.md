@@ -1,7 +1,5 @@
 # Ecommerce v1 — Production Build Roadmap (Checklist)
 
----
-
 ## Phase 1 — Foundation (Infrastructure First)
 
 - [x] Initialize monorepo (client + server folders)
@@ -13,8 +11,6 @@
 - [x] Seed basic admin user
 
 **Goal:** Server runs, DB connected, schema stable
-
----
 
 ## Phase 2 — Authentication System
 
@@ -28,8 +24,6 @@
 
 **Goal:** Secure login + protected routes working
 
----
-
 ## Phase 3 — Product System
 
 - [x] Admin: Create product
@@ -40,21 +34,18 @@
 
 **Goal:** Product CRUD fully functional, no delete -> isActive = true/false
 
----
-
 ## Phase 4 — Cart System
 
 - [x] Create Cart model
 - [x] Create CartItem model
-- [x] Add to cart
-- [ ] Update quantity
+- [x] Add to cart 
+- [x] Increase cart item
+- [ ] Decrease cart item
 - [ ] Remove item
 - [ ] Get current cart
 - [ ] Attach cart to authenticated user
 
 **Goal:** Persistent cart per user
-
----
 
 ## Phase 5 — Order System (Critical Engineering Phase)
 
@@ -70,8 +61,6 @@
 
 **Goal:** Cart → Order conversion safely
 
----
-
 ## Phase 6 — Admin Order Management
 
 - [ ] List all orders (admin)
@@ -80,8 +69,6 @@
 - [ ] View users
 
 **Goal:** Basic back-office system
-
----
 
 ## Phase 7 — Frontend Integration
 
@@ -96,8 +83,6 @@
 
 **Goal:** Fully functional UI connected to API
 
----
-
 ## Phase 8 — Payments (Stripe)
 
 - [ ] Create Stripe checkout session
@@ -107,8 +92,6 @@
 - [ ] Handle failed payments
 
 **Goal:** Real money flow working
-
----
 
 ## Phase 9 — Production Hardening
 
