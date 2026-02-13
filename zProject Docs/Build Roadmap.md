@@ -23,7 +23,7 @@
 - [x] Login endpoint
 - [x] JWT generation
 - [x] Auth middleware (protect routes)
-- [ ] Role-based admin middleware
+- [x] Role-based admin middleware
 - [x] Test with Postman
 
 **Goal:** Secure login + protected routes working
@@ -32,14 +32,13 @@
 
 ## Phase 3 — Product System
 
-- [ ] Admin: Create product
-- [ ] Admin: Update product
-- [ ] Admin: Delete product
+- [x] Admin: Create product
+- [x] Admin: Update product
 - [ ] Public: List products
 - [ ] Public: Get single product
 - [ ] Add validation layer
 
-**Goal:** Product CRUD fully functional
+**Goal:** Product CRUD fully functional, no delete -> isActive = true/false
 
 ---
 

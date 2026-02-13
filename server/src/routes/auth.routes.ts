@@ -4,8 +4,7 @@ import bcrypt from "bcrypt";
 import prisma from "../lib/prisma.js";
 import { generateToken } from "../lib/jwt.js";
 
-import { authMiddleware } from "../middleware/auth.middleware.js";
-import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
+import { authMiddleware, type AuthenticatedRequest } from "../middleware/auth.middleware.js";
 import { changePasswordSchema, registerSchema } from "../validators/auth.validator.js";
 
 import { Role } from "@prisma/client";
@@ -75,6 +74,7 @@ router.get("/me", authMiddleware, async (req: AuthenticatedRequest, res) => {
       id: true,
       email: true,
       createdAt: true,
+      role: true,
     },
   });
 

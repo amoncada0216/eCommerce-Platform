@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 
 import prisma from "./lib/prisma.js";
 import authRoutes from "./routes/auth.routes.js";
+import productRoutes from "./routes/products.routes.js";
 
 const app = express();
 
@@ -19,5 +20,6 @@ app.get("/api/v1/health", async (_, res) => {
 });
 
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/products", productRoutes);
 
 export default app;
