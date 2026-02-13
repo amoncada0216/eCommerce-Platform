@@ -1,4 +1,4 @@
-# Ecommerce v1 — Production Build Roadmap (Checklist)
+# Ecommerce v1 — Production Build Roadmap (Updated)
 
 ## Phase 1 — Foundation (Infrastructure First)
 
@@ -31,21 +31,27 @@
 - [x] Public: List products (with pagination)
 - [x] Public: Get single product
 - [x] Add validation layer
+- [ ] Admin: Bulk create products (JSON array input)
+- [ ] Admin: Bulk update products
+- [ ] Enforce atomic bulk operations (transaction-based)
+- [ ] Slug uniqueness validation strategy
+- [ ] Optional: CSV import pipeline (future enhancement)
 
-**Goal:** Product CRUD fully functional, no delete -> isActive = true/false
+**Goal:** Scalable product management with bulk operations
 
 ## Phase 4 — Cart System
 
 - [x] Create Cart model
 - [x] Create CartItem model
-- [x] Add to cart 
+- [x] Add to cart
 - [x] Increase cart item
 - [x] Decrease cart item
 - [x] Remove item
-- [ ] Get current cart
-- [ ] Attach cart to authenticated user
+- [x] Get current cart
+- [ ] Guest cart support (server-side, cookie-based)
+- [ ] Merge guest cart into user cart on login
 
-**Goal:** Persistent cart per user
+**Goal:** Persistent and scalable cart architecture
 
 ## Phase 5 — Order System (Critical Engineering Phase)
 
@@ -58,17 +64,21 @@
 - [ ] Reduce stock
 - [ ] Clear cart after success
 - [ ] Store shipping snapshot in order
+- [ ] Prevent duplicate checkout submissions
+- [ ] Order confirmation email (basic version)
 
-**Goal:** Cart → Order conversion safely
+**Goal:** Cart → Order conversion safely and atomically
 
 ## Phase 6 — Admin Order Management
 
 - [ ] List all orders (admin)
+- [ ] Filter orders (status, date, user)
 - [ ] Update order status
 - [ ] View order details
+- [ ] Refund status handling (pre-Stripe logic)
 - [ ] View users
 
-**Goal:** Basic back-office system
+**Goal:** Back-office system for operations control
 
 ## Phase 7 — Frontend Integration
 
@@ -79,7 +89,10 @@
 - [ ] Product detail page
 - [ ] Cart page
 - [ ] Checkout form
+- [ ] Guest checkout support
 - [ ] Admin dashboard pages
+- [ ] Order tracking page (public view by order ID)
+- [ ] Invite-to-register after guest checkout
 
 **Goal:** Fully functional UI connected to API
 
@@ -90,23 +103,30 @@
 - [ ] Verify payment signature
 - [ ] Update order status to PAID
 - [ ] Handle failed payments
+- [ ] Idempotency handling for webhook events
 
-**Goal:** Real money flow working
+**Goal:** Real money flow working safely
 
-## Phase 9 — Production Hardening
+## Phase 9 — Communication & Retention Layer
+
+- [ ] Order confirmation email
+- [ ] Shipping notification email
+- [ ] Password reset email
+- [ ] Guest order tracking link
+- [ ] Invite guest to create account (order history claim)
+
+**Goal:** Lifecycle engagement & professional experience
+
+## Phase 10 — Production Hardening
 
 - [ ] Centralized error handling
 - [ ] Input validation everywhere
 - [ ] Rate limiting
 - [ ] Secure HTTP headers
 - [ ] Environment separation
-- [ ] Logging
+- [ ] Logging (structured logs)
+- [ ] Monitoring
 - [ ] Deploy backend
 - [ ] Deploy frontend
 
 **Goal:** Production-ready system
-
-
-## To implement
-
-- Bulk-add products feature
