@@ -34,7 +34,7 @@
 
 - [x] Admin: Create product
 - [x] Admin: Update product
-- [ ] Public: List products (with pagination)
+- [x] Public: List products (with pagination)
 - [ ] Public: Get single product
 - [ ] Add validation layer
 
