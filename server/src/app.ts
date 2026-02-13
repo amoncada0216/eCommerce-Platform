@@ -3,7 +3,7 @@ import cookieParser from "cookie-parser";
 
 import prisma from "./lib/prisma.js";
 import authRoutes from "./routes/auth.routes.js";
-import productRoutes from "./routes/products.routes.js";
+import productRoutes from "./routes/product.routes.js";
 
 const app = express();
 

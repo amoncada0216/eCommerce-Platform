@@ -44,9 +44,9 @@
 
 ## Phase 4 — Cart System
 
-- [ ] Create Cart model
-- [ ] Create CartItem model
-- [ ] Add to cart
+- [x] Create Cart model
+- [x] Create CartItem model
+- [x] Add to cart
 - [ ] Update quantity
 - [ ] Remove item
 - [ ] Get current cart
