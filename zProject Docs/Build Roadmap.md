@@ -71,7 +71,7 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Strict TypeScript configuration
 - [x] Clean folder structure (controllers, routes, services, utils)
 - [x] Path aliases configuration
-- [ ] Environment variable typing
+- [x] Environment variable typing
 - [x] ESLint + Prettier setup
 - [x] Consistent naming conventions
 

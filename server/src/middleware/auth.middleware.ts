@@ -8,18 +8,27 @@ const JWT_SECRET = process.env.JWT_SECRET as string;
 
 export interface AuthenticatedRequest extends Request {
   userId?: string;
-  role?: "USER" | "ADMIN"
+  role?: "USER" | "ADMIN";
 }
 
-export async function authMiddleware(req: AuthenticatedRequest, res: Response, next: NextFunction) {
+export async function authMiddleware(
+  req: AuthenticatedRequest,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
   const token = req.cookies.token;
 
   if (!token) {
-    return res.status(401).json({ message: "401 Unauthorized" });
+    res.status(401).json({ message: "401 Unauthorized" });
+    return;
   }
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string; tokenVersion: number; role: Role };
+    const decoded = jwt.verify(token, JWT_SECRET) as {
+      userId: string;
+      tokenVersion: number;
+      role: Role;
+    };
 
     const user = await prisma.user.findUnique({
       where: { id: decoded.userId },
@@ -27,11 +36,13 @@ export async function authMiddleware(req: AuthenticatedRequest, res: Response, n
     });
 
     if (!user) {
-      return res.status(401).json({ message: "401 Unauthorized" });
+      res.status(401).json({ message: "401 Unauthorized" });
+      return;
     }
 
     if (user.tokenVersion !== decoded.tokenVersion) {
-      return res.status(401).json({ message: "401 Unauthorized" });
+      res.status(401).json({ message: "401 Unauthorized" });
+      return;
     }
 
     req.userId = decoded.userId;
@@ -39,6 +50,7 @@ export async function authMiddleware(req: AuthenticatedRequest, res: Response, n
 
     next();
   } catch (error) {
-    return res.status(401).json({ message: "401 Unauthorized" });
+    res.status(401).json({ message: "401 Unauthorized" });
+    return;
   }
 }
