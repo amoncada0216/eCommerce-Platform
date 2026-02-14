@@ -76,11 +76,11 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Consistent naming conventions
 
 ### Database Foundation
-- [ ] Add database indexes where appropriate
+- [x] Add database indexes where appropriate
 - [ ] Add unique constraints intentionally
 - [ ] Define cascading delete behavior explicitly
-- [x] Add createdAt / updatedAt consistently
-- [x] Define enum types early (roles, statuses)
+- [ ] Add createdAt / updatedAt consistently
+- [ ] Define enum types early (roles, statuses)
 - [ ] Review schema normalization
 
 ### Configuration & Environment
@@ -88,7 +88,7 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [ ] Separate dev / test / prod configs
 - [ ] Secure JWT secret handling
 - [ ] Define base URL constants
-- [ ] Add .env.example file
+- [x] Add .env.example file
 
 ### Developer Experience
 - [ ] NPM scripts (dev, build, start, lint)

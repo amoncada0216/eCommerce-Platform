@@ -6,6 +6,3 @@ node_modules
 
 /generated/prisma
 
-products.json
-
-seed.ts

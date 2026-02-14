@@ -1,0 +1,1402 @@
+[
+  {
+    "name": "Air Force 1 '07",
+    "brand": "Nike",
+    "description": "Classic low-top sneaker with leather upper and Air cushioning.",
+    "price": 110.0,
+    "stock": 40
+  },
+  {
+    "name": "Air Max 90",
+    "brand": "Nike",
+    "description": "Iconic running-inspired sneaker with visible Air unit.",
+    "price": 130.0,
+    "stock": 35
+  },
+  {
+    "name": "Air Max 97",
+    "brand": "Nike",
+    "description": "Wavy design lines with full-length Air cushioning.",
+    "price": 175.0,
+    "stock": 28
+  },
+  {
+    "name": "Dunk Low Retro",
+    "brand": "Nike",
+    "description": "Basketball heritage sneaker with leather overlays.",
+    "price": 115.0,
+    "stock": 50
+  },
+  {
+    "name": "Blazer Mid '77",
+    "brand": "Nike",
+    "description": "Vintage mid-top with suede accents.",
+    "price": 100.0,
+    "stock": 32
+  },
+  {
+    "name": "Pegasus 40",
+    "brand": "Nike",
+    "description": "Responsive road running shoe with React foam.",
+    "price": 130.0,
+    "stock": 25
+  },
+  {
+    "name": "ZoomX Vaporfly Next%",
+    "brand": "Nike",
+    "description": "Elite racing shoe with ZoomX foam.",
+    "price": 250.0,
+    "stock": 15
+  },
+  {
+    "name": "React Infinity Run 3",
+    "brand": "Nike",
+    "description": "Stability-focused running shoe with React cushioning.",
+    "price": 160.0,
+    "stock": 22
+  },
+  {
+    "name": "Air Jordan 1 Low",
+    "brand": "Nike",
+    "description": "Low-top version of the iconic Jordan 1.",
+    "price": 120.0,
+    "stock": 45
+  },
+  {
+    "name": "Air Max Plus",
+    "brand": "Nike",
+    "description": "Bold design with Tuned Air cushioning.",
+    "price": 170.0,
+    "stock": 20
+  },
+  {
+    "name": "Court Vision Low",
+    "brand": "Nike",
+    "description": "Retro basketball style for everyday wear.",
+    "price": 75.0,
+    "stock": 60
+  },
+  {
+    "name": "Air Max 270",
+    "brand": "Nike",
+    "description": "Lifestyle sneaker with large heel Air unit.",
+    "price": 150.0,
+    "stock": 30
+  },
+  {
+    "name": "Metcon 9",
+    "brand": "Nike",
+    "description": "Training shoe built for stability and durability.",
+    "price": 130.0,
+    "stock": 18
+  },
+  {
+    "name": "SB Dunk Low Pro",
+    "brand": "Nike",
+    "description": "Skateboarding shoe with padded collar.",
+    "price": 115.0,
+    "stock": 27
+  },
+  {
+    "name": "Air Max SC",
+    "brand": "Nike",
+    "description": "Casual sneaker with visible Air cushioning.",
+    "price": 90.0,
+    "stock": 44
+  },
+  {
+    "name": "Zoom Freak 5",
+    "brand": "Nike",
+    "description": "Basketball shoe inspired by Giannis Antetokounmpo.",
+    "price": 140.0,
+    "stock": 21
+  },
+  {
+    "name": "Free RN 5.0",
+    "brand": "Nike",
+    "description": "Lightweight flexible running shoe.",
+    "price": 100.0,
+    "stock": 26
+  },
+  {
+    "name": "Air Max 95",
+    "brand": "Nike",
+    "description": "Layered upper with visible forefoot Air.",
+    "price": 180.0,
+    "stock": 19
+  },
+  {
+    "name": "Killshot 2",
+    "brand": "Nike",
+    "description": "Minimalist leather sneaker with gum sole.",
+    "price": 90.0,
+    "stock": 33
+  },
+  {
+    "name": "Air Huarache",
+    "brand": "Nike",
+    "description": "Neoprene inner sleeve with snug fit.",
+    "price": 125.0,
+    "stock": 24
+  },
+  {
+    "name": "Ultraboost 1.0",
+    "brand": "Adidas",
+    "description": "Responsive Boost cushioning with Primeknit upper.",
+    "price": 190.0,
+    "stock": 30
+  },
+  {
+    "name": "Stan Smith",
+    "brand": "Adidas",
+    "description": "Timeless tennis-inspired leather sneaker.",
+    "price": 100.0,
+    "stock": 50
+  },
+  {
+    "name": "Superstar",
+    "brand": "Adidas",
+    "description": "Shell-toe classic street sneaker.",
+    "price": 95.0,
+    "stock": 45
+  },
+  {
+    "name": "NMD_R1",
+    "brand": "Adidas",
+    "description": "Modern lifestyle sneaker with Boost midsole.",
+    "price": 150.0,
+    "stock": 28
+  },
+  {
+    "name": "Gazelle",
+    "brand": "Adidas",
+    "description": "Suede upper with vintage appeal.",
+    "price": 100.0,
+    "stock": 34
+  },
+  {
+    "name": "Samba OG",
+    "brand": "Adidas",
+    "description": "Soccer-inspired classic sneaker.",
+    "price": 90.0,
+    "stock": 40
+  },
+  {
+    "name": "Forum Low",
+    "brand": "Adidas",
+    "description": "Retro basketball sneaker with strap detail.",
+    "price": 110.0,
+    "stock": 26
+  },
+  {
+    "name": "Adizero Adios Pro",
+    "brand": "Adidas",
+    "description": "Carbon-plated racing shoe.",
+    "price": 250.0,
+    "stock": 14
+  },
+  {
+    "name": "ZX 750",
+    "brand": "Adidas",
+    "description": "Running-inspired lifestyle sneaker.",
+    "price": 85.0,
+    "stock": 38
+  },
+  {
+    "name": "Terrex Swift R3",
+    "brand": "Adidas",
+    "description": "Trail running shoe with rugged outsole.",
+    "price": 140.0,
+    "stock": 20
+  },
+  {
+    "name": "Ozelia",
+    "brand": "Adidas",
+    "description": "Chunky silhouette with Adiprene cushioning.",
+    "price": 100.0,
+    "stock": 29
+  },
+  {
+    "name": "Campus 00s",
+    "brand": "Adidas",
+    "description": "Skate-inspired suede sneaker.",
+    "price": 110.0,
+    "stock": 32
+  },
+  {
+    "name": "Response CL",
+    "brand": "Adidas",
+    "description": "Retro running shoe with mesh upper.",
+    "price": 130.0,
+    "stock": 21
+  },
+  {
+    "name": "Adistar",
+    "brand": "Adidas",
+    "description": "Long-distance running shoe.",
+    "price": 160.0,
+    "stock": 18
+  },
+  {
+    "name": "Predator Edge.3",
+    "brand": "Adidas",
+    "description": "Soccer turf sneaker.",
+    "price": 85.0,
+    "stock": 36
+  },
+  {
+    "name": "4DFWD",
+    "brand": "Adidas",
+    "description": "3D-printed midsole for forward motion.",
+    "price": 200.0,
+    "stock": 12
+  },
+  {
+    "name": "Hoops 3.0",
+    "brand": "Adidas",
+    "description": "Basketball-inspired everyday sneaker.",
+    "price": 70.0,
+    "stock": 48
+  },
+  {
+    "name": "Lite Racer Adapt",
+    "brand": "Adidas",
+    "description": "Slip-on casual running shoe.",
+    "price": 65.0,
+    "stock": 52
+  },
+  {
+    "name": "Runfalcon 3",
+    "brand": "Adidas",
+    "description": "Entry-level running sneaker.",
+    "price": 60.0,
+    "stock": 60
+  },
+  {
+    "name": "Crazychaos 2000",
+    "brand": "Adidas",
+    "description": "Chunky retro-inspired sneaker.",
+    "price": 90.0,
+    "stock": 37
+  },
+  {
+    "name": "Suede Classic XXI",
+    "brand": "Puma",
+    "description": "Iconic suede sneaker with timeless street style.",
+    "price": 75.0,
+    "stock": 45
+  },
+  {
+    "name": "RS-X Reinvent",
+    "brand": "Puma",
+    "description": "Chunky retro runner with bold color blocking.",
+    "price": 110.0,
+    "stock": 28
+  },
+  {
+    "name": "Cali Dream",
+    "brand": "Puma",
+    "description": "Platform lifestyle sneaker with leather upper.",
+    "price": 100.0,
+    "stock": 34
+  },
+  {
+    "name": "Future Rider",
+    "brand": "Puma",
+    "description": "Lightweight retro-inspired running sneaker.",
+    "price": 80.0,
+    "stock": 39
+  },
+  {
+    "name": "Velocity Nitro 2",
+    "brand": "Puma",
+    "description": "Responsive running shoe with Nitro foam.",
+    "price": 120.0,
+    "stock": 22
+  },
+  {
+    "name": "Deviate Nitro Elite",
+    "brand": "Puma",
+    "description": "Carbon-plated racing shoe for speed.",
+    "price": 200.0,
+    "stock": 14
+  },
+  {
+    "name": "Smash v2",
+    "brand": "Puma",
+    "description": "Clean tennis-inspired casual sneaker.",
+    "price": 55.0,
+    "stock": 60
+  },
+  {
+    "name": "Carina 2.0",
+    "brand": "Puma",
+    "description": "Platform sneaker with soft leather upper.",
+    "price": 70.0,
+    "stock": 50
+  },
+  {
+    "name": "Mayze Stack",
+    "brand": "Puma",
+    "description": "Elevated sole with bold street design.",
+    "price": 95.0,
+    "stock": 30
+  },
+  {
+    "name": "Ultra Match",
+    "brand": "Puma",
+    "description": "Lightweight soccer-inspired trainer.",
+    "price": 85.0,
+    "stock": 26
+  },
+  {
+    "name": "Ignite Flash Evo",
+    "brand": "Puma",
+    "description": "Training shoe with Ignite foam cushioning.",
+    "price": 90.0,
+    "stock": 21
+  },
+  {
+    "name": "Trinity Lite",
+    "brand": "Puma",
+    "description": "Modern lifestyle sneaker with mesh upper.",
+    "price": 75.0,
+    "stock": 37
+  },
+  {
+    "name": "Rebound LayUp",
+    "brand": "Puma",
+    "description": "Basketball-inspired mid-top sneaker.",
+    "price": 65.0,
+    "stock": 44
+  },
+  {
+    "name": "Wild Rider Rollin'",
+    "brand": "Puma",
+    "description": "Heritage runner with contemporary details.",
+    "price": 110.0,
+    "stock": 23
+  },
+  {
+    "name": "Enzo 2",
+    "brand": "Puma",
+    "description": "Athletic training shoe with bold branding.",
+    "price": 70.0,
+    "stock": 41
+  },
+  {
+    "name": "Leadcat 2.0",
+    "brand": "Puma",
+    "description": "Sport slide sandal with padded strap.",
+    "price": 25.0,
+    "stock": 80
+  },
+  {
+    "name": "Skyrocket Lite",
+    "brand": "Puma",
+    "description": "Lightweight running sneaker for daily use.",
+    "price": 60.0,
+    "stock": 48
+  },
+  {
+    "name": "Roma Basic",
+    "brand": "Puma",
+    "description": "Classic low-profile training sneaker.",
+    "price": 65.0,
+    "stock": 36
+  },
+  {
+    "name": "RS-Fast",
+    "brand": "Puma",
+    "description": "Sport-inspired sneaker with dynamic design.",
+    "price": 120.0,
+    "stock": 19
+  },
+  {
+    "name": "Slipstream Lo",
+    "brand": "Puma",
+    "description": "Retro basketball sneaker with leather overlays.",
+    "price": 110.0,
+    "stock": 24
+  },
+  {
+    "name": "574 Core",
+    "brand": "New Balance",
+    "description": "Iconic everyday sneaker with ENCAP cushioning.",
+    "price": 90.0,
+    "stock": 52
+  },
+  {
+    "name": "990v5",
+    "brand": "New Balance",
+    "description": "Premium running shoe made in USA.",
+    "price": 185.0,
+    "stock": 18
+  },
+  {
+    "name": "550",
+    "brand": "New Balance",
+    "description": "Retro basketball sneaker with leather upper.",
+    "price": 110.0,
+    "stock": 40
+  },
+  {
+    "name": "327",
+    "brand": "New Balance",
+    "description": "Modern lifestyle sneaker with oversized N logo.",
+    "price": 100.0,
+    "stock": 33
+  },
+  {
+    "name": "Fresh Foam 1080v13",
+    "brand": "New Balance",
+    "description": "Cushioned running shoe with Fresh Foam midsole.",
+    "price": 165.0,
+    "stock": 20
+  },
+  {
+    "name": "Fresh Foam X 880v13",
+    "brand": "New Balance",
+    "description": "Neutral running shoe for daily training.",
+    "price": 140.0,
+    "stock": 24
+  },
+  {
+    "name": "2002R",
+    "brand": "New Balance",
+    "description": "Premium retro runner with suede overlays.",
+    "price": 150.0,
+    "stock": 27
+  },
+  {
+    "name": "9060",
+    "brand": "New Balance",
+    "description": "Futuristic silhouette with chunky sole.",
+    "price": 150.0,
+    "stock": 21
+  },
+  {
+    "name": "373v2",
+    "brand": "New Balance",
+    "description": "Classic suede sneaker for everyday wear.",
+    "price": 75.0,
+    "stock": 46
+  },
+  {
+    "name": "FuelCell Rebel v3",
+    "brand": "New Balance",
+    "description": "Lightweight performance running shoe.",
+    "price": 130.0,
+    "stock": 19
+  },
+  {
+    "name": "XC-72",
+    "brand": "New Balance",
+    "description": "Retro-inspired sneaker with bold outsole.",
+    "price": 120.0,
+    "stock": 29
+  },
+  {
+    "name": "680v7",
+    "brand": "New Balance",
+    "description": "Affordable cushioned running shoe.",
+    "price": 80.0,
+    "stock": 50
+  },
+  {
+    "name": "BB480",
+    "brand": "New Balance",
+    "description": "Court-inspired leather sneaker.",
+    "price": 90.0,
+    "stock": 35
+  },
+  {
+    "name": "Trail 410v7",
+    "brand": "New Balance",
+    "description": "Versatile trail running sneaker.",
+    "price": 75.0,
+    "stock": 42
+  },
+  {
+    "name": "Fresh Foam More v4",
+    "brand": "New Balance",
+    "description": "Max-cushion running shoe for long distances.",
+    "price": 155.0,
+    "stock": 17
+  },
+  {
+    "name": "997H",
+    "brand": "New Balance",
+    "description": "Heritage-inspired lifestyle sneaker.",
+    "price": 95.0,
+    "stock": 38
+  },
+  {
+    "name": "5740",
+    "brand": "New Balance",
+    "description": "Modern reinterpretation of the 574.",
+    "price": 110.0,
+    "stock": 26
+  },
+  {
+    "name": "Fresh Foam Arishi v4",
+    "brand": "New Balance",
+    "description": "Lightweight running shoe for daily wear.",
+    "price": 70.0,
+    "stock": 47
+  },
+  {
+    "name": "Numeric 306",
+    "brand": "New Balance",
+    "description": "Skate shoe designed with durability in mind.",
+    "price": 85.0,
+    "stock": 31
+  },
+  {
+    "name": "Minimus TR",
+    "brand": "New Balance",
+    "description": "Minimal training shoe for gym workouts.",
+    "price": 120.0,
+    "stock": 23
+  },
+  {
+    "name": "Chuck Taylor All Star High",
+    "brand": "Converse",
+    "description": "Iconic high-top canvas sneaker with rubber toe cap.",
+    "price": 65.0,
+    "stock": 60
+  },
+  {
+    "name": "Chuck Taylor All Star Low",
+    "brand": "Converse",
+    "description": "Classic low-top canvas sneaker.",
+    "price": 60.0,
+    "stock": 55
+  },
+  {
+    "name": "Chuck 70 High",
+    "brand": "Converse",
+    "description": "Premium high-top with vintage detailing.",
+    "price": 90.0,
+    "stock": 35
+  },
+  {
+    "name": "Chuck 70 Low",
+    "brand": "Converse",
+    "description": "Low-top version with upgraded cushioning.",
+    "price": 85.0,
+    "stock": 38
+  },
+  {
+    "name": "Run Star Hike",
+    "brand": "Converse",
+    "description": "Platform sneaker with jagged outsole.",
+    "price": 110.0,
+    "stock": 28
+  },
+  {
+    "name": "Run Star Motion",
+    "brand": "Converse",
+    "description": "Bold platform sneaker with wavy midsole.",
+    "price": 120.0,
+    "stock": 22
+  },
+  {
+    "name": "One Star Pro",
+    "brand": "Converse",
+    "description": "Skate-focused sneaker with suede upper.",
+    "price": 80.0,
+    "stock": 40
+  },
+  {
+    "name": "Weapon CX",
+    "brand": "Converse",
+    "description": "Basketball heritage sneaker with modern cushioning.",
+    "price": 120.0,
+    "stock": 20
+  },
+  {
+    "name": "Pro Leather",
+    "brand": "Converse",
+    "description": "Low-profile leather basketball classic.",
+    "price": 85.0,
+    "stock": 30
+  },
+  {
+    "name": "All Star CX",
+    "brand": "Converse",
+    "description": "Lightweight sneaker with CX foam midsole.",
+    "price": 75.0,
+    "stock": 44
+  },
+  {
+    "name": "Jack Purcell",
+    "brand": "Converse",
+    "description": "Minimalist sneaker with signature smile toe.",
+    "price": 70.0,
+    "stock": 36
+  },
+  {
+    "name": "Star Player 76",
+    "brand": "Converse",
+    "description": "Retro court sneaker with leather upper.",
+    "price": 75.0,
+    "stock": 32
+  },
+  {
+    "name": "Fastbreak Pro",
+    "brand": "Converse",
+    "description": "Skateboarding sneaker with durable build.",
+    "price": 85.0,
+    "stock": 27
+  },
+  {
+    "name": "Chuck Taylor Lift",
+    "brand": "Converse",
+    "description": "Platform version of the classic All Star.",
+    "price": 75.0,
+    "stock": 41
+  },
+  {
+    "name": "All Star Lugged 2.0",
+    "brand": "Converse",
+    "description": "Chunky lug outsole for added traction.",
+    "price": 100.0,
+    "stock": 24
+  },
+  {
+    "name": "CONS Louie Lopez Pro",
+    "brand": "Converse",
+    "description": "Low-profile skate sneaker.",
+    "price": 80.0,
+    "stock": 29
+  },
+  {
+    "name": "Chuck Taylor Waterproof",
+    "brand": "Converse",
+    "description": "Weather-ready high-top sneaker.",
+    "price": 95.0,
+    "stock": 18
+  },
+  {
+    "name": "All Star Construct",
+    "brand": "Converse",
+    "description": "Reinforced sneaker for durability.",
+    "price": 85.0,
+    "stock": 25
+  },
+  {
+    "name": "Chuck Taylor Seasonal",
+    "brand": "Converse",
+    "description": "Limited edition colorway canvas sneaker.",
+    "price": 70.0,
+    "stock": 33
+  },
+  {
+    "name": "Chuck Taylor Street",
+    "brand": "Converse",
+    "description": "Padded collar for extra comfort.",
+    "price": 65.0,
+    "stock": 39
+  },
+  {
+    "name": "Old Skool",
+    "brand": "Vans",
+    "description": "Classic skate shoe with signature side stripe.",
+    "price": 70.0,
+    "stock": 58
+  },
+  {
+    "name": "Authentic",
+    "brand": "Vans",
+    "description": "Original low-top canvas skate sneaker.",
+    "price": 55.0,
+    "stock": 62
+  },
+  {
+    "name": "Sk8-Hi",
+    "brand": "Vans",
+    "description": "High-top skate shoe with padded collar.",
+    "price": 75.0,
+    "stock": 45
+  },
+  {
+    "name": "Slip-On Classic",
+    "brand": "Vans",
+    "description": "Easy slip-on sneaker with canvas upper.",
+    "price": 60.0,
+    "stock": 50
+  },
+  {
+    "name": "Era",
+    "brand": "Vans",
+    "description": "Low-top skate shoe with padded lining.",
+    "price": 60.0,
+    "stock": 47
+  },
+  {
+    "name": "UltraRange EXO",
+    "brand": "Vans",
+    "description": "Lightweight sneaker for travel and daily wear.",
+    "price": 100.0,
+    "stock": 26
+  },
+  {
+    "name": "Knu Skool",
+    "brand": "Vans",
+    "description": "Chunky Y2K-inspired skate sneaker.",
+    "price": 85.0,
+    "stock": 31
+  },
+  {
+    "name": "Half Cab",
+    "brand": "Vans",
+    "description": "Mid-top skate shoe with durable suede upper.",
+    "price": 80.0,
+    "stock": 28
+  },
+  {
+    "name": "Rowan",
+    "brand": "Vans",
+    "description": "Pro skate shoe with impact cushioning.",
+    "price": 85.0,
+    "stock": 23
+  },
+  {
+    "name": "Kyle Walker Pro",
+    "brand": "Vans",
+    "description": "Skateboarding shoe with reinforced toe.",
+    "price": 90.0,
+    "stock": 22
+  },
+  {
+    "name": "Slip-On TRK",
+    "brand": "Vans",
+    "description": "Water-friendly slip-on with molded design.",
+    "price": 45.0,
+    "stock": 60
+  },
+  {
+    "name": "Old Skool Platform",
+    "brand": "Vans",
+    "description": "Platform version of the classic Old Skool.",
+    "price": 75.0,
+    "stock": 34
+  },
+  {
+    "name": "Sk8-Low",
+    "brand": "Vans",
+    "description": "Low-top version of the Sk8-Hi.",
+    "price": 70.0,
+    "stock": 36
+  },
+  {
+    "name": "Authentic ComfyCush",
+    "brand": "Vans",
+    "description": "Upgraded cushioning for extra comfort.",
+    "price": 65.0,
+    "stock": 40
+  },
+  {
+    "name": "Era Stackform",
+    "brand": "Vans",
+    "description": "Elevated platform skate sneaker.",
+    "price": 80.0,
+    "stock": 29
+  },
+  {
+    "name": "Old Skool Pro",
+    "brand": "Vans",
+    "description": "Skate-ready version with enhanced durability.",
+    "price": 85.0,
+    "stock": 27
+  },
+  {
+    "name": "MTE Sk8-Hi Waterproof",
+    "brand": "Vans",
+    "description": "Weather-resistant high-top sneaker.",
+    "price": 120.0,
+    "stock": 18
+  },
+  {
+    "name": "Classic Slip-On Checkerboard",
+    "brand": "Vans",
+    "description": "Iconic checkerboard canvas slip-on.",
+    "price": 60.0,
+    "stock": 52
+  },
+  {
+    "name": "Ultrarange Rapidweld",
+    "brand": "Vans",
+    "description": "Breathable sneaker with seamless upper.",
+    "price": 95.0,
+    "stock": 24
+  },
+  {
+    "name": "Chukka Low",
+    "brand": "Vans",
+    "description": "Low-profile skate-inspired sneaker.",
+    "price": 75.0,
+    "stock": 33
+  },
+  {
+    "name": "Gel-Kayano 30",
+    "brand": "ASICS",
+    "description": "Stability running shoe with FF BLAST+ cushioning.",
+    "price": 160.0,
+    "stock": 24
+  },
+  {
+    "name": "Gel-Nimbus 26",
+    "brand": "ASICS",
+    "description": "Neutral running shoe with plush cushioning.",
+    "price": 165.0,
+    "stock": 22
+  },
+  {
+    "name": "Gel-Cumulus 25",
+    "brand": "ASICS",
+    "description": "Versatile daily trainer with responsive foam.",
+    "price": 140.0,
+    "stock": 28
+  },
+  {
+    "name": "GT-2000 12",
+    "brand": "ASICS",
+    "description": "Lightweight stability running shoe.",
+    "price": 140.0,
+    "stock": 26
+  },
+  {
+    "name": "Novablast 4",
+    "brand": "ASICS",
+    "description": "Energetic running shoe with bounce feel.",
+    "price": 140.0,
+    "stock": 20
+  },
+  {
+    "name": "Gel-Quantum 360 VII",
+    "brand": "ASICS",
+    "description": "Lifestyle sneaker with 360-degree GEL cushioning.",
+    "price": 150.0,
+    "stock": 18
+  },
+  {
+    "name": "Gel-Lyte III",
+    "brand": "ASICS",
+    "description": "Retro runner with split tongue design.",
+    "price": 120.0,
+    "stock": 30
+  },
+  {
+    "name": "Gel-Lyte V",
+    "brand": "ASICS",
+    "description": "Classic suede and mesh lifestyle sneaker.",
+    "price": 120.0,
+    "stock": 27
+  },
+  {
+    "name": "Gel-Resolution 9",
+    "brand": "ASICS",
+    "description": "Durable tennis shoe with GEL cushioning.",
+    "price": 135.0,
+    "stock": 19
+  },
+  {
+    "name": "Court FF 3",
+    "brand": "ASICS",
+    "description": "High-performance tennis shoe for speed.",
+    "price": 160.0,
+    "stock": 15
+  },
+  {
+    "name": "Trail Scout 3",
+    "brand": "ASICS",
+    "description": "Entry-level trail running sneaker.",
+    "price": 75.0,
+    "stock": 42
+  },
+  {
+    "name": "Gel-Venture 9",
+    "brand": "ASICS",
+    "description": "Versatile trail running shoe.",
+    "price": 80.0,
+    "stock": 38
+  },
+  {
+    "name": "Metaracer",
+    "brand": "ASICS",
+    "description": "Carbon-plated racing shoe for speed.",
+    "price": 200.0,
+    "stock": 12
+  },
+  {
+    "name": "Dynablast 3",
+    "brand": "ASICS",
+    "description": "Lightweight running shoe for daily miles.",
+    "price": 100.0,
+    "stock": 29
+  },
+  {
+    "name": "Japan S",
+    "brand": "ASICS",
+    "description": "Court-inspired lifestyle sneaker.",
+    "price": 75.0,
+    "stock": 45
+  },
+  {
+    "name": "Gel-Contend 8",
+    "brand": "ASICS",
+    "description": "Affordable neutral running shoe.",
+    "price": 70.0,
+    "stock": 50
+  },
+  {
+    "name": "Solution Speed FF 2",
+    "brand": "ASICS",
+    "description": "Lightweight tennis shoe for agility.",
+    "price": 150.0,
+    "stock": 17
+  },
+  {
+    "name": "Gel-Trabuco 11",
+    "brand": "ASICS",
+    "description": "Trail running shoe with rugged outsole.",
+    "price": 140.0,
+    "stock": 21
+  },
+  {
+    "name": "Hyper Speed 3",
+    "brand": "ASICS",
+    "description": "Lightweight racing flat for fast runs.",
+    "price": 90.0,
+    "stock": 32
+  },
+  {
+    "name": "Upcourt 5",
+    "brand": "ASICS",
+    "description": "Indoor court shoe with supportive fit.",
+    "price": 65.0,
+    "stock": 41
+  },
+  {
+    "name": "HOVR Phantom 3",
+    "brand": "Under Armour",
+    "description": "Cushioned running shoe with HOVR foam.",
+    "price": 140.0,
+    "stock": 22
+  },
+  {
+    "name": "HOVR Machina 3",
+    "brand": "Under Armour",
+    "description": "Performance running shoe with energy return.",
+    "price": 160.0,
+    "stock": 18
+  },
+  {
+    "name": "Charged Assert 10",
+    "brand": "Under Armour",
+    "description": "Lightweight daily running sneaker.",
+    "price": 75.0,
+    "stock": 48
+  },
+  {
+    "name": "Charged Rogue 3",
+    "brand": "Under Armour",
+    "description": "Breathable running shoe with Charged Cushioning.",
+    "price": 85.0,
+    "stock": 35
+  },
+  {
+    "name": "TriBase Reign 5",
+    "brand": "Under Armour",
+    "description": "Stable training shoe for gym workouts.",
+    "price": 130.0,
+    "stock": 20
+  },
+  {
+    "name": "Curry Flow 10",
+    "brand": "Under Armour",
+    "description": "Basketball shoe inspired by Stephen Curry.",
+    "price": 160.0,
+    "stock": 16
+  },
+  {
+    "name": "Lockdown 6",
+    "brand": "Under Armour",
+    "description": "Affordable basketball sneaker.",
+    "price": 70.0,
+    "stock": 40
+  },
+  {
+    "name": "Spawn 4",
+    "brand": "Under Armour",
+    "description": "Lightweight basketball performance shoe.",
+    "price": 110.0,
+    "stock": 24
+  },
+  {
+    "name": "Project Rock 6",
+    "brand": "Under Armour",
+    "description": "Training shoe built for intense workouts.",
+    "price": 140.0,
+    "stock": 19
+  },
+  {
+    "name": "HOVR Infinite 4",
+    "brand": "Under Armour",
+    "description": "Neutral running shoe for long distances.",
+    "price": 120.0,
+    "stock": 26
+  },
+  {
+    "name": "UA SlipSpeed",
+    "brand": "Under Armour",
+    "description": "Convertible training sneaker with BOA system.",
+    "price": 150.0,
+    "stock": 14
+  },
+  {
+    "name": "Surge 3",
+    "brand": "Under Armour",
+    "description": "Lightweight running sneaker for daily wear.",
+    "price": 65.0,
+    "stock": 52
+  },
+  {
+    "name": "Micro G Pursuit 3",
+    "brand": "Under Armour",
+    "description": "Running shoe with responsive Micro G foam.",
+    "price": 70.0,
+    "stock": 44
+  },
+  {
+    "name": "HOVR Apex 3",
+    "brand": "Under Armour",
+    "description": "Cross-training shoe with stable base.",
+    "price": 130.0,
+    "stock": 21
+  },
+  {
+    "name": "Charged Bandit Trail 3",
+    "brand": "Under Armour",
+    "description": "Trail running sneaker with durable outsole.",
+    "price": 95.0,
+    "stock": 28
+  },
+  {
+    "name": "Valsetz RTS 1.5",
+    "brand": "Under Armour",
+    "description": "Tactical boot-inspired athletic shoe.",
+    "price": 120.0,
+    "stock": 17
+  },
+  {
+    "name": "Flow Velociti Wind 2",
+    "brand": "Under Armour",
+    "description": "Lightweight running shoe with Flow technology.",
+    "price": 160.0,
+    "stock": 15
+  },
+  {
+    "name": "Charged Commit TR 3",
+    "brand": "Under Armour",
+    "description": "Training shoe with leather overlays.",
+    "price": 80.0,
+    "stock": 33
+  },
+  {
+    "name": "UA HOVR Rise 4",
+    "brand": "Under Armour",
+    "description": "Versatile gym training sneaker.",
+    "price": 110.0,
+    "stock": 25
+  },
+  {
+    "name": "Anatomix Spawn 3",
+    "brand": "Under Armour",
+    "description": "Breathable basketball shoe with supportive fit.",
+    "price": 100.0,
+    "stock": 29
+  },
+  {
+    "name": "Club C 85",
+    "brand": "Reebok",
+    "description": "Classic tennis-inspired leather sneaker.",
+    "price": 80.0,
+    "stock": 48
+  },
+  {
+    "name": "Classic Leather",
+    "brand": "Reebok",
+    "description": "Timeless leather sneaker with EVA midsole.",
+    "price": 75.0,
+    "stock": 52
+  },
+  {
+    "name": "Nano X3",
+    "brand": "Reebok",
+    "description": "Versatile training shoe for cross-training.",
+    "price": 140.0,
+    "stock": 22
+  },
+  {
+    "name": "Floatride Energy 5",
+    "brand": "Reebok",
+    "description": "Lightweight running shoe with responsive foam.",
+    "price": 110.0,
+    "stock": 26
+  },
+  {
+    "name": "Zig Kinetica 3",
+    "brand": "Reebok",
+    "description": "Modern sneaker with Zig Energy system.",
+    "price": 130.0,
+    "stock": 19
+  },
+  {
+    "name": "Workout Plus",
+    "brand": "Reebok",
+    "description": "Heritage fitness sneaker with durable leather.",
+    "price": 90.0,
+    "stock": 35
+  },
+  {
+    "name": "Question Mid",
+    "brand": "Reebok",
+    "description": "Iconic basketball shoe inspired by Allen Iverson.",
+    "price": 160.0,
+    "stock": 16
+  },
+  {
+    "name": "Royal Glide",
+    "brand": "Reebok",
+    "description": "Retro-inspired everyday sneaker.",
+    "price": 65.0,
+    "stock": 44
+  },
+  {
+    "name": "Instapump Fury 95",
+    "brand": "Reebok",
+    "description": "Bold design with Pump fit system.",
+    "price": 170.0,
+    "stock": 14
+  },
+  {
+    "name": "Ridgerider 6",
+    "brand": "Reebok",
+    "description": "Trail running shoe with rugged outsole.",
+    "price": 70.0,
+    "stock": 41
+  },
+  {
+    "name": "BB 4000 II",
+    "brand": "Reebok",
+    "description": "Retro basketball-inspired sneaker.",
+    "price": 85.0,
+    "stock": 32
+  },
+  {
+    "name": "Energen Plus",
+    "brand": "Reebok",
+    "description": "Cushioned daily running shoe.",
+    "price": 75.0,
+    "stock": 39
+  },
+  {
+    "name": "Flexagon Force 4",
+    "brand": "Reebok",
+    "description": "Lightweight training shoe with flexible sole.",
+    "price": 70.0,
+    "stock": 36
+  },
+  {
+    "name": "LX2200",
+    "brand": "Reebok",
+    "description": "Vintage runner with suede overlays.",
+    "price": 95.0,
+    "stock": 28
+  },
+  {
+    "name": "Classic Nylon",
+    "brand": "Reebok",
+    "description": "Lightweight retro sneaker with nylon upper.",
+    "price": 75.0,
+    "stock": 40
+  },
+  {
+    "name": "Pump Omni Zone II",
+    "brand": "Reebok",
+    "description": "High-top basketball sneaker with Pump tech.",
+    "price": 180.0,
+    "stock": 12
+  },
+  {
+    "name": "Floatride Run Fast 3",
+    "brand": "Reebok",
+    "description": "Lightweight racing shoe for speed.",
+    "price": 140.0,
+    "stock": 18
+  },
+  {
+    "name": "Royal Techque T",
+    "brand": "Reebok",
+    "description": "Tennis-inspired lifestyle sneaker.",
+    "price": 65.0,
+    "stock": 46
+  },
+  {
+    "name": "Nano Court",
+    "brand": "Reebok",
+    "description": "Court training shoe with stable base.",
+    "price": 120.0,
+    "stock": 20
+  },
+  {
+    "name": "Premier Road Plus VI",
+    "brand": "Reebok",
+    "description": "Premium retro running sneaker.",
+    "price": 110.0,
+    "stock": 23
+  },
+  {
+    "name": "Clifton 9",
+    "brand": "Hoka",
+    "description": "Lightweight neutral running shoe with plush cushioning.",
+    "price": 145.0,
+    "stock": 25
+  },
+  {
+    "name": "Bondi 8",
+    "brand": "Hoka",
+    "description": "Max-cushion road running shoe for comfort.",
+    "price": 165.0,
+    "stock": 22
+  },
+  {
+    "name": "Speedgoat 5",
+    "brand": "Hoka",
+    "description": "Trail running shoe with aggressive grip.",
+    "price": 155.0,
+    "stock": 20
+  },
+  {
+    "name": "Arahi 6",
+    "brand": "Hoka",
+    "description": "Stability running shoe with lightweight feel.",
+    "price": 140.0,
+    "stock": 24
+  },
+  {
+    "name": "Mach 5",
+    "brand": "Hoka",
+    "description": "Responsive running shoe for tempo runs.",
+    "price": 140.0,
+    "stock": 21
+  },
+  {
+    "name": "Gaviota 5",
+    "brand": "Hoka",
+    "description": "Max-stability shoe with plush ride.",
+    "price": 170.0,
+    "stock": 18
+  },
+  {
+    "name": "Rincon 3",
+    "brand": "Hoka",
+    "description": "Lightweight trainer with soft cushioning.",
+    "price": 125.0,
+    "stock": 30
+  },
+  {
+    "name": "Challenger ATR 7",
+    "brand": "Hoka",
+    "description": "Hybrid road-to-trail running shoe.",
+    "price": 145.0,
+    "stock": 19
+  },
+  {
+    "name": "Tecton X 2",
+    "brand": "Hoka",
+    "description": "Carbon-plated trail racing shoe.",
+    "price": 225.0,
+    "stock": 12
+  },
+  {
+    "name": "Rocket X 2",
+    "brand": "Hoka",
+    "description": "Elite road racing shoe with carbon plate.",
+    "price": 250.0,
+    "stock": 10
+  },
+  {
+    "name": "Transport",
+    "brand": "Hoka",
+    "description": "Lifestyle sneaker with performance comfort.",
+    "price": 150.0,
+    "stock": 17
+  },
+  {
+    "name": "Kawana",
+    "brand": "Hoka",
+    "description": "Versatile training shoe with balanced cushioning.",
+    "price": 140.0,
+    "stock": 23
+  },
+  {
+    "name": "Anacapa Low GTX",
+    "brand": "Hoka",
+    "description": "Waterproof hiking shoe with Gore-Tex lining.",
+    "price": 180.0,
+    "stock": 15
+  },
+  {
+    "name": "Stinson 7",
+    "brand": "Hoka",
+    "description": "Max-cushion trail running shoe.",
+    "price": 170.0,
+    "stock": 14
+  },
+  {
+    "name": "Bondi SR",
+    "brand": "Hoka",
+    "description": "Slip-resistant work shoe with cushioning.",
+    "price": 175.0,
+    "stock": 16
+  },
+  {
+    "name": "Carbon X 3",
+    "brand": "Hoka",
+    "description": "Long-distance racing shoe with carbon plate.",
+    "price": 200.0,
+    "stock": 13
+  },
+  {
+    "name": "Elevon 2",
+    "brand": "Hoka",
+    "description": "Plush running shoe with responsive feel.",
+    "price": 160.0,
+    "stock": 18
+  },
+  {
+    "name": "Torrent 3",
+    "brand": "Hoka",
+    "description": "Lightweight trail shoe with nimble ride.",
+    "price": 130.0,
+    "stock": 22
+  },
+  {
+    "name": "Hopara",
+    "brand": "Hoka",
+    "description": "Outdoor adventure sandal-shoe hybrid.",
+    "price": 135.0,
+    "stock": 27
+  },
+  {
+    "name": "Clifton Edge",
+    "brand": "Hoka",
+    "description": "Extended heel design for smooth transitions.",
+    "price": 160.0,
+    "stock": 15
+  }
+]
