@@ -6,6 +6,7 @@ import { changePasswordSchema, registerSchema } from "@/validators/auth.validato
 import prisma from "@/lib/prisma.js";
 import { generateToken } from "@/lib/jwt.js";
 import type { AuthenticatedRequest } from "@/middleware/auth.middleware.js";
+import { env } from "@/config/env.js";
 
 export async function registerUser(req: Request, res: Response) {
   try {
@@ -38,7 +39,7 @@ export async function registerUser(req: Request, res: Response) {
         passwordHash: hashedPassword,
         tokenVersion: 0,
         role: Role.USER,
-        isActive: true
+        isActive: true,
       },
     });
 
@@ -46,7 +47,7 @@ export async function registerUser(req: Request, res: Response) {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, // true in production
+      secure: env.NODE_ENV === "production",
       sameSite: "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
@@ -111,7 +112,7 @@ export async function loginUser(req: Request, res: Response) {
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, // true in production
+      secure: env.NODE_ENV === "production",
       sameSite: "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
@@ -189,7 +190,7 @@ export async function userChangePassword(req: AuthenticatedRequest, res: Respons
 
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, // true in production
+      secure: env.NODE_ENV === "production",
       sameSite: "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });

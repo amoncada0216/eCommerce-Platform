@@ -84,10 +84,10 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Review schema normalization
 
 ### Configuration & Environment
-- [ ] Environment variable validation (Zod schema for process.env)
-- [ ] Separate dev / test / prod configs
-- [ ] Secure JWT secret handling
-- [ ] Define base URL constants
+- [x] Environment variable validation (Zod schema for process.env)
+- [x] Separate dev / test / prod configs
+- [x] Secure JWT secret handling
+- [x] Define base URL constants
 - [x] Add .env.example file
 
 ### Developer Experience
