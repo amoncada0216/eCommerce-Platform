@@ -38,6 +38,7 @@ export async function registerUser(req: Request, res: Response) {
         passwordHash: hashedPassword,
         tokenVersion: 0,
         role: Role.USER,
+        isActive: true
       },
     });
 
