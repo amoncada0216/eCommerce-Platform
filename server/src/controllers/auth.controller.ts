@@ -1,11 +1,11 @@
 import type { Request, Response } from "express";
-import { Role } from "@prisma/client";
 import bcrypt from "bcrypt";
 
-import { changePasswordSchema, registerSchema } from "../validators/auth.validator.js";
-import prisma from "../lib/prisma.js";
-import { generateToken } from "../lib/jwt.js";
-import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
+import { Role } from "@prisma/client";
+import { changePasswordSchema, registerSchema } from "@/validators/auth.validator.js";
+import prisma from "@/lib/prisma.js";
+import { generateToken } from "@/lib/jwt.js";
+import type { AuthenticatedRequest } from "@/middleware/auth.middleware.js";
 
 export async function registerUser(req: Request, res: Response) {
   try {

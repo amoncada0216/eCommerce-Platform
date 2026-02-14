@@ -1,13 +1,13 @@
 import { Router } from "express";
 
-import { authMiddleware } from "../middleware/auth.middleware.js";
+import { authMiddleware } from "@/middleware/auth.middleware.js";
 import {
   addCartItem,
   decreaseCartItem,
   getCurrentCart,
   increaseCartItem,
   removeCartItem,
-} from "../controllers/cart.controller.js";
+} from "@/controllers/cart.controller.js";
 
 const router = Router();
 

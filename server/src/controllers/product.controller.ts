@@ -1,15 +1,14 @@
 import { Prisma } from "@prisma/client";
 import type { Request, Response } from "express";
-
-import prisma from "../lib/prisma.js";
-import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
+import prisma from "@/lib/prisma.js";
+import type { AuthenticatedRequest } from "@/middleware/auth.middleware.js";
 import {
   createProductSchema,
   listProductsQuerySchema,
   productSlugParamSchema,
   updateProductSchema,
-} from "../validators/product.validator.js";
-import { generateUniqueSlug } from "../utils/slug.js";
+} from "@/validators/product.validator.js";
+import { generateUniqueSlug } from "@/utils/slug.js";
 
 export async function createProduct(req: AuthenticatedRequest, res: Response) {
   try {

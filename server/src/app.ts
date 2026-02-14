@@ -1,10 +1,10 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 
-import prisma from "./lib/prisma.js";
-import authRouter from "./routes/auth.routes.js";
-import productRouter from "./routes/product.routes.js";
-import cartRouter from "./routes/cart.routes.js";
+import prisma from "@/lib/prisma.js";
+import authRouter from "@/routes/auth.routes.js";
+import productRouter from "@/routes/product.routes.js";
+import cartRouter from "@/routes/cart.routes.js";
 
 const app = express();
 

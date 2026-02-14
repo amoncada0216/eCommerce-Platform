@@ -1,8 +1,8 @@
 import type { Response } from "express";
 
-import prisma from "../lib/prisma.js";
-import type { AuthenticatedRequest } from "../middleware/auth.middleware.js";
-import { addToCartSchema } from "../validators/cart.validator.js";
+import prisma from "@/lib/prisma.js";
+import type { AuthenticatedRequest } from "@/middleware/auth.middleware.js";
+import { addToCartSchema } from "@/validators/cart.validator.js";
 
 export async function addCartItem(req: AuthenticatedRequest, res: Response) {
   try {
