@@ -68,9 +68,9 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Seed basic admin user
 
 ### TypeScript & Code Structure
-- [ ] Strict TypeScript configuration
+- [x] Strict TypeScript configuration
 - [x] Clean folder structure (controllers, routes, services, utils)
-- [ ] Path aliases configuration
+- [x] Path aliases configuration
 - [ ] Environment variable typing
 - [x] ESLint + Prettier setup
 - [x] Consistent naming conventions
