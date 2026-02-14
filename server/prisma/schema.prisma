@@ -19,10 +19,13 @@ model User {
   tokenVersion Int    @default(0)
   role         Role   @default(USER)
 
-  cart Cart?
+  isActive Boolean @default(true)
+
+  cart   Cart?
+  orders Order[]
 
   createdAt DateTime @default(now())
-  orders    Order[]
+  updatedAt DateTime @updatedAt
 
   @@index([role])
   @@index([createdAt])
@@ -89,7 +92,7 @@ enum OrderStatus {
 model Order {
   id     String @id @default(uuid())
   userId String
-  user   User   @relation(fields: [userId], references: [id])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Restrict)
 
   status OrderStatus @default(PENDING)
 
@@ -124,7 +127,7 @@ model OrderItem {
   nameAtPurchase  String
 
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@index([orderId])
-  @@index([productId])
+  @@unique([orderId, productId])
 }

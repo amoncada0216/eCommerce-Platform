@@ -77,11 +77,11 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 
 ### Database Foundation
 - [x] Add database indexes where appropriate
-- [ ] Add unique constraints intentionally
-- [ ] Define cascading delete behavior explicitly
-- [ ] Add createdAt / updatedAt consistently
-- [ ] Define enum types early (roles, statuses)
-- [ ] Review schema normalization
+- [x] Add unique constraints intentionally
+- [x] Define cascading delete behavior explicitly
+- [x] Add createdAt / updatedAt consistently
+- [x] Define enum types early (roles, statuses)
+- [x] Review schema normalization
 
 ### Configuration & Environment
 - [ ] Environment variable validation (Zod schema for process.env)
