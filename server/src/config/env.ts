@@ -1,16 +1,21 @@
 import { z } from "zod";
 
+import dotenv from "dotenv"
+
+dotenv.config();
+
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
   PORT: z.string().default("5000"),
-  DATABASE_URL: z.string().url(),
+  DATABASE_URL: z.url(),
   JWT_SECRET: z.string().min(10),
 });
 
 const parsed = envSchema.safeParse(process.env);
 
 if (!parsed.success) {
-  console.error("Invalid environment variables:", parsed.error.format());
+  console.error("Invalid environment variables:");
+  console.error(z.treeifyError(parsed.error));
   process.exit(1);
 }
 
