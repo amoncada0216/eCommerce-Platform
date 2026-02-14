@@ -56,7 +56,7 @@ export async function registerUser(req: Request, res: Response) {
       id: newUser.id,
       email: newUser.email,
     });
-  } catch (error) {
+  } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }
 }
@@ -118,7 +118,7 @@ export async function loginUser(req: Request, res: Response) {
     });
 
     return res.status(200).json({ id: existingUser.id, email: existingUser.email });
-  } catch (error) {
+  } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }
 }
@@ -132,7 +132,7 @@ export async function logoutUser(_: Request, res: Response) {
     });
 
     return res.status(200).json({ message: "Logged out." });
-  } catch (error) {
+  } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }
 }
@@ -196,7 +196,7 @@ export async function userChangePassword(req: AuthenticatedRequest, res: Respons
     });
 
     return res.status(200).json({ message: "Password updated successfully." });
-  } catch (error) {
+  } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }
 }

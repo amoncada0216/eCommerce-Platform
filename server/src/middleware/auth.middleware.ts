@@ -50,7 +50,7 @@ export async function authMiddleware(
     req.role = decoded.role;
 
     next();
-  } catch (error) {
+  } catch (_error) {
     res.status(401).json({ message: "401 Unauthorized" });
     return;
   }

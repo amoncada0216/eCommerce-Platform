@@ -71,7 +71,7 @@ export async function addCartItem(req: AuthenticatedRequest, res: Response) {
     }
 
     return res.status(200).json({ message: "Added to cart." });
-  } catch (error) {
+  } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }
 }
@@ -159,7 +159,7 @@ export async function increaseCartItem(req: AuthenticatedRequest, res: Response)
     });
 
     return res.status(200).json({ message: "Cart updated." });
-  } catch (error) {
+  } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }
 }
@@ -211,7 +211,7 @@ export async function decreaseCartItem(req: AuthenticatedRequest, res: Response)
     }
 
     return res.status(200).json({ message: "Cart updated." });
-  } catch (error) {
+  } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }
 }

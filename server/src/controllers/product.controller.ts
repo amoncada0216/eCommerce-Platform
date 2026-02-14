@@ -176,7 +176,7 @@ export async function getProducts(req: Request, res: Response) {
         totalPages,
       },
     });
-  } catch (error) {
+  } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }
 }
@@ -218,7 +218,7 @@ export async function getProductBySlug(req: Request, res: Response) {
     }
 
     return res.status(200).json(product);
-  } catch (error) {
+  } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }
 }
