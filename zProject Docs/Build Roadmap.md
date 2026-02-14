@@ -91,11 +91,11 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Add .env.example file
 
 ### Developer Experience
-- [ ] NPM scripts (dev, build, start, lint)
-- [ ] Hot reload (tsx / nodemon)
-- [ ] Prisma Studio access (dev only)
-- [ ] Clear README setup instructions
-- [ ] Git ignore hygiene
+- [x] NPM scripts (dev, build, start, lint)
+- [x] Hot reload (tsx / nodemon)
+- [x] Prisma Studio access (dev only)
+- [x] Clear README setup instructions
+- [x] Git ignore hygiene
 
 ### Testing Foundation (Optional but Strong)
 - [ ] Setup testing framework (Vitest / Jest)
