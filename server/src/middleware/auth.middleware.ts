@@ -1,21 +1,21 @@
 import type { Request, Response, NextFunction } from "express";
-import jwt from "jsonwebtoken";
+import { jwtVerify } from "jose";
 
 import { Role } from "@prisma/client";
 import { env } from "@/config/env.js";
 import prisma from "@/lib/prisma.js";
 
-const JWT_SECRET = env.JWT_SECRET;
+const secret = new TextEncoder().encode(env.JWT_SECRET);
 
 export interface AuthenticatedRequest extends Request {
   userId?: string;
-  role?: "USER" | "ADMIN";
+  role?: Role;
 }
 
 export async function authMiddleware(
   req: AuthenticatedRequest,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ): Promise<void> {
   const token = req.cookies.token;
 
@@ -25,7 +25,9 @@ export async function authMiddleware(
   }
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as {
+    const { payload } = await jwtVerify(token, secret);
+
+    const decoded = payload as {
       userId: string;
       tokenVersion: number;
       role: Role;

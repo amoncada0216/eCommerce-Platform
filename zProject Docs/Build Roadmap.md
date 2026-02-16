@@ -119,16 +119,16 @@ Stable, typed, validated, and scalable infrastructure ready for feature developm
 - [x] Role-based admin middleware
 
 ### Security Hardening
-- [ ] Token expiration strategy
-- [ ] tokenVersion for global session invalidation
-- [ ] Logout endpoint (clear cookie)
-- [ ] Logout-all-sessions support
-- [ ] Prevent user enumeration on login
-- [ ] 401 vs 403 semantic correctness
+- [x] Token expiration strategy
+- [x] tokenVersion for global session invalidation
+- [x] Logout endpoint (clear cookie)
+- [x] Logout-all-sessions support
+- [x] Prevent user enumeration on login
+- [x] 401 vs 403 semantic correctness
 - [ ] Rate limit login endpoint
 - [ ] Brute-force protection (basic lockout logic)
-- [ ] Secure cookie flags (secure, sameSite=strict in prod)
-- [ ] Strong password policy enforcement
+- [x] Secure cookie flags (secure, sameSite=strict in prod)
+- [x] Strong password policy enforcement
 
 ### Password Lifecycle
 - [ ] Change password endpoint

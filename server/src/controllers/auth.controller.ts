@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import { Role } from "@prisma/client";
 import { changePasswordSchema, registerSchema } from "@/validators/auth.validator.js";
 import prisma from "@/lib/prisma.js";
-import { generateToken } from "@/lib/jwt.js";
+import { generateToken } from "@/lib/jose.js";
 import type { AuthenticatedRequest } from "@/middleware/auth.middleware.js";
 import { env } from "@/config/env.js";
 
@@ -83,11 +83,11 @@ export async function loginUser(req: Request, res: Response) {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return res.status(400).json({ message: "Email and password required." });
+    return res.status(400).json({ message: "Invalid credentials." });
   }
 
   try {
-    const existingUser = await prisma.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: { email },
       select: {
         id: true,
@@ -95,20 +95,50 @@ export async function loginUser(req: Request, res: Response) {
         passwordHash: true,
         tokenVersion: true,
         role: true,
+        failedLoginAttempts: true,
+        lockUntil: true,
       },
     });
 
-    if (!existingUser) {
+    // Prevent user enumeration
+    if (!user) {
       return res.status(401).json({ message: "Invalid credentials." });
     }
 
-    const isMatch = await bcrypt.compare(password, existingUser.passwordHash);
-
-    if (!isMatch) {
-      return res.status(401).json({ message: "Incorrect credentials." });
+    // Check account lock
+    if (user.lockUntil && user.lockUntil > new Date()) {
+      return res.status(401).json({ message: "Invalid credentials." });
     }
 
-    const token = generateToken(existingUser.id, existingUser.tokenVersion, existingUser.role);
+    const isMatch = await bcrypt.compare(password, user.passwordHash);
+
+    if (!isMatch) {
+      const attempts = user.failedLoginAttempts + 1;
+
+      await prisma.user.update({
+        where: { id: user.id },
+        data: {
+          failedLoginAttempts: attempts,
+          lockUntil:
+            attempts >= env.MAX_LOGIN_ATTEMPTS
+              ? new Date(Date.now() + env.LOCK_DURATION_MINUTES * 60 * 1000)
+              : null,
+        },
+      });
+
+      return res.status(401).json({ message: "Invalid credentials." });
+    }
+
+    // Successful login → reset counters
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        failedLoginAttempts: 0,
+        lockUntil: null,
+      },
+    });
+
+    const token = await generateToken(user.id, user.tokenVersion, user.role);
 
     res.cookie("token", token, {
       httpOnly: true,
@@ -117,7 +147,10 @@ export async function loginUser(req: Request, res: Response) {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    return res.status(200).json({ id: existingUser.id, email: existingUser.email });
+    return res.status(200).json({
+      id: user.id,
+      email: user.email,
+    });
   } catch (_error) {
     return res.status(500).json({ message: "Server error." });
   }

@@ -8,6 +8,7 @@ import {
   registerUser,
   userChangePassword,
 } from "@/controllers/auth.controller.js";
+import { loginRateLimiter } from "@/middleware/rate-limit.middleware.js";
 
 const router = Router();
 
@@ -15,7 +16,7 @@ router.post("/register", registerUser);
 
 router.get("/me", authMiddleware, getUserInfo);
 
-router.post("/login", loginUser);
+router.post("/login", loginRateLimiter, loginUser);
 
 router.delete("/logout", logoutUser);
 
