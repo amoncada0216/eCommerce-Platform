@@ -382,7 +382,75 @@ Cart → Order conversion that is atomic, race-condition safe, price-consistent,
 
 ---
 
-### Phase 7A — Integration Harness (Engineering Mode)
+## Phase 7A — Frontend Foundation (Pre-Integration Hardening)
+
+**Purpose:**  
+Stabilize frontend infrastructure before implementing feature-level integration.  
+No features until foundation is clean.
+
+---
+
+### Project Structure & Organization
+
+- [x] Remove default Next.js demo content
+- [x] Define folder structure:
+  - `app/`
+  - `components/`
+  - `lib/`
+  - `context/`
+  - `hooks/`
+  - `types/`
+- [x] Configure path aliases properly
+- [x] Enforce consistent naming conventions
+- [x] Enable strict TypeScript
+- [x] Verify production build succeeds
+
+---
+
+### Environment & Configuration
+
+- [ ] Create `.env.local`
+- [ ] Create `.env.example`
+- [ ] Add `NEXT_PUBLIC_API_URL`
+- [ ] Ensure environment-based API configuration
+- [ ] Confirm frontend works with backend CORS
+- [ ] Verify cookies are sent with `withCredentials`
+
+---
+
+### Tooling & Code Quality
+
+- [ ] Review ESLint configuration
+- [ ] Ensure no lint errors
+- [ ] Configure Prettier (if needed)
+- [ ] Add `typecheck` script
+- [ ] Add `lint` script
+- [ ] Verify clean production build (`next build`)
+
+---
+
+### Git Hygiene
+
+- [ ] Confirm `.next` is ignored
+- [ ] Confirm `node_modules` is ignored
+- [ ] Confirm `.env.local` is ignored
+- [ ] Confirm no sensitive data is tracked
+
+---
+
+### Cross-Origin & Session Verification
+
+- [ ] Confirm backend CORS allows credentials
+- [ ] Confirm cookies appear in browser DevTools
+- [ ] Confirm session persists after refresh
+- [ ] Confirm `/auth/me` works from frontend
+
+**Goal:**  
+Frontend is structurally sound, environment-aware, production-build safe, and session-ready before feature development begins.
+
+---
+
+### Phase 7B — Integration Harness (Engineering Mode)
 
 **Purpose:**  
 Create a functional frontend that acts as a testing surface for backend features.  
@@ -432,14 +500,12 @@ Focus on correctness, not visual polish.
 - [ ] Success page
 - [ ] Error handling display
 
----
-
 **Goal:**  
 Visually validate backend logic, stress-test cart and checkout behavior, and expose race-condition or state bugs early.
 
 ---
 
-### Phase 7B — Customer Experience Layer (Polish Mode)
+### Phase 7C — Customer Experience Layer (Polish Mode)
 
 **Purpose:**  
 Enhance usability, retention, and business credibility after core backend flows are stable.
