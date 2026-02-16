@@ -382,7 +382,7 @@ Cart → Order conversion that is atomic, race-condition safe, price-consistent,
 
 ---
 
-## Phase 7A — Integration Harness (Engineering Mode)
+### Phase 7A — Integration Harness (Engineering Mode)
 
 **Purpose:**  
 Create a functional frontend that acts as a testing surface for backend features.  
@@ -439,7 +439,7 @@ Visually validate backend logic, stress-test cart and checkout behavior, and exp
 
 ---
 
-## Phase 7B — Customer Experience Layer (Polish Mode)
+### Phase 7B — Customer Experience Layer (Polish Mode)
 
 **Purpose:**  
 Enhance usability, retention, and business credibility after core backend flows are stable.
