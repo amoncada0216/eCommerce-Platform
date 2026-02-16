@@ -59,6 +59,7 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 ## Phase 1 — Foundation (Infrastructure First)
 
 ### Project Setup
+
 - [x] Initialize monorepo (client + server folders)
 - [x] Setup Express server
 - [x] Connect PostgreSQL
@@ -68,6 +69,7 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Seed basic admin user
 
 ### TypeScript & Code Structure
+
 - [x] Strict TypeScript configuration
 - [x] Clean folder structure (controllers, routes, services, utils)
 - [x] Path aliases configuration
@@ -76,6 +78,7 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Consistent naming conventions
 
 ### Database Foundation
+
 - [x] Add database indexes where appropriate
 - [x] Add unique constraints intentionally
 - [x] Define cascading delete behavior explicitly
@@ -84,6 +87,7 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Review schema normalization
 
 ### Configuration & Environment
+
 - [x] Environment variable validation (Zod schema for process.env)
 - [x] Separate dev / test / prod configs
 - [x] Secure JWT secret handling
@@ -91,6 +95,7 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Add .env.example file
 
 ### Developer Experience
+
 - [x] NPM scripts (dev, build, start, lint)
 - [x] Hot reload (tsx / nodemon)
 - [x] Prisma Studio access (dev only)
@@ -98,6 +103,7 @@ Create a cohesive, professional brand identity and polished UI that elevates the
 - [x] Git ignore hygiene
 
 ### Testing Foundation (Optional but Strong)
+
 - [ ] Setup testing framework (Vitest / Jest)
 - [ ] Basic health test
 - [ ] Basic auth test
@@ -110,6 +116,7 @@ Stable, typed, validated, and scalable infrastructure ready for feature developm
 ## Phase 2 — Authentication System
 
 ### Core Authentication
+
 - [x] Password hashing (bcrypt)
 - [x] Register endpoint
 - [x] Login endpoint
@@ -119,18 +126,20 @@ Stable, typed, validated, and scalable infrastructure ready for feature developm
 - [x] Role-based admin middleware
 
 ### Security Hardening
+
 - [x] Token expiration strategy
 - [x] tokenVersion for global session invalidation
 - [x] Logout endpoint (clear cookie)
 - [x] Logout-all-sessions support
 - [x] Prevent user enumeration on login
 - [x] 401 vs 403 semantic correctness
-- [ ] Rate limit login endpoint
-- [ ] Brute-force protection (basic lockout logic)
+- [x] Rate limit login endpoint
+- [x] Brute-force protection (basic lockout logic)
 - [x] Secure cookie flags (secure, sameSite=strict in prod)
 - [x] Strong password policy enforcement
 
 ### Password Lifecycle
+
 - [ ] Change password endpoint
 - [ ] Verify current password before change
 - [ ] Increment tokenVersion on password change
@@ -139,24 +148,28 @@ Stable, typed, validated, and scalable infrastructure ready for feature developm
 - [ ] Invalidate reset token after use
 
 ### Email Verification (Strong Signal)
+
 - [ ] Email verification token
 - [ ] Verification endpoint
 - [ ] Prevent login if email not verified (optional)
 - [ ] Resend verification email
 
 ### Token & Session Strategy
+
 - [ ] Decide: short-lived JWT vs long-lived
 - [ ] Refresh token strategy (optional advanced)
 - [ ] Rotation strategy (advanced)
 - [ ] Detect revoked users (DB check in middleware)
 
 ### Account Management
+
 - [ ] Update profile endpoint
 - [ ] Disable account (soft delete)
 - [ ] Reactivate account flow
 - [ ] User role upgrade/downgrade flow
 
 ### Testing & Validation
+
 - [ ] Zod validation for all auth endpoints
 - [ ] Integration tests for auth flows
 - [ ] Test invalid token cases
@@ -365,52 +378,90 @@ Cart → Order conversion that is atomic, race-condition safe, price-consistent,
 
 ---
 
-## Phase 7 — Frontend Integration (Customer Side)
-
-### Core Integration
-
-- [ ] Axios setup
-- [ ] Global API error handling
-- [ ] Auth context (JWT cookie-based)
-- [ ] Protected routes
-- [ ] Role-based UI handling
+## Phase 7 — Frontend Integration
 
 ---
 
-### Product Experience
+## Phase 7A — Integration Harness (Engineering Mode)
 
-- [ ] Product listing page (pagination)
-- [ ] Product filtering (price, availability)
-- [ ] Product search
+**Purpose:**  
+Create a functional frontend that acts as a testing surface for backend features.  
+Focus on correctness, not visual polish.
+
+### Core Infrastructure
+
+- [ ] Axios instance with `withCredentials: true`
+- [ ] Centralized API configuration
+- [ ] Global API error interceptor
+- [ ] Auth context (fetch current user on app load)
+- [ ] Login page
+- [ ] Logout flow
+- [ ] Basic protected route wrapper
+- [ ] Role-based route guard (admin pages)
+
+---
+
+### Product Testing Surface
+
+- [ ] Product listing page (basic pagination)
 - [ ] Product detail page
-- [ ] Related products section
+- [ ] Add to cart button
 - [ ] Stock availability indicator
-- [ ] Low-stock warning display
+- [ ] Basic low-stock warning display
 
 ---
 
-### Cart Experience
+### Cart Testing Surface
 
 - [ ] Cart page
-- [ ] Increase / decrease quantity buttons
-- [ ] Remove item
-- [ ] Auto-refresh cart totals
-- [ ] Cart empty state UI
-- [ ] Guest cart support
-- [ ] Merge guest cart after login
+- [ ] Increase quantity button
+- [ ] Decrease quantity button
+- [ ] Remove item button
+- [ ] Cart subtotal calculation
+- [ ] Total item count display
 - [ ] Persistent cart badge in navbar
 
 ---
 
-### Checkout Experience
+### Checkout Testing Surface
 
-- [ ] Checkout form (shipping info)
+- [ ] Basic checkout form (shipping info only)
 - [ ] Order summary preview
-- [ ] Real-time total calculation
-- [ ] Validation feedback
+- [ ] Submit order button
 - [ ] Duplicate submission prevention
-- [ ] Order confirmation page
-- [ ] Error handling for failed checkout
+- [ ] Success page
+- [ ] Error handling display
+
+---
+
+**Goal:**  
+Visually validate backend logic, stress-test cart and checkout behavior, and expose race-condition or state bugs early.
+
+---
+
+## Phase 7B — Customer Experience Layer (Polish Mode)
+
+**Purpose:**  
+Enhance usability, retention, and business credibility after core backend flows are stable.
+
+---
+
+### Product Experience Enhancements
+
+- [ ] Product filtering (price, availability)
+- [ ] Product search
+- [ ] Related products section
+- [ ] Improved stock messaging
+- [ ] Product performance indicators
+
+---
+
+### Cart & Guest Experience
+
+- [ ] Guest cart support
+- [ ] Guest cart merge after login
+- [ ] Auto-refresh cart totals
+- [ ] Cart empty state UI
 
 ---
 
@@ -418,42 +469,37 @@ Cart → Order conversion that is atomic, race-condition safe, price-consistent,
 
 - [ ] User order history page
 - [ ] View order details
-- [ ] Order status indicator (timeline view)
-- [ ] Download invoice (future)
+- [ ] Order status timeline view
 - [ ] Cancel order (if allowed)
 - [ ] Track order page (public via order ID)
 - [ ] Guest order tracking page
-- [ ] Invite-to-register after guest checkout
 - [ ] Claim guest order after registration
 
 ---
 
-### Support & Customer Tools
+### Support & Retention
 
 - [ ] Contact support form
 - [ ] Order-specific support request
-- [ ] Report issue with order
 - [ ] FAQ page
-- [ ] Return request form (future)
-- [ ] Display return/refund policy
-- [ ] Resend order confirmation email option
-- [ ] View refund status
+- [ ] Return/refund request flow (future)
+- [ ] Email verification reminder
+- [ ] Password reset flow UI
+- [ ] Session expiration handling
+- [ ] Success / error toast notifications
 
 ---
 
-### UX & Retention
+### UX Improvements
 
-- [ ] Email verification reminder
-- [ ] Password reset flow
-- [ ] Session expiration handling
-- [ ] Success / error toast notifications
-- [ ] Loading state management
-- [ ] Optimistic UI updates for cart
+- [ ] Loading skeleton components
+- [ ] Optimistic UI updates (cart)
 - [ ] Mobile responsiveness
-- [ ] Accessibility improvements (basic)
+- [ ] Accessibility improvements
+- [ ] Consistent design system application
 
 **Goal:**  
-Fully functional, production-ready customer interface with order visibility, support flows, and retention mechanisms.
+Transform the integration harness into a polished, production-ready customer interface.
 
 ---
 
@@ -574,6 +620,7 @@ Reliable transactional communication layer that builds user trust, supports oper
 ## Phase 10 — Production Hardening
 
 ### Error Handling & Stability
+
 - [ ] Centralized error handling middleware
 - [ ] Consistent API error response format
 - [ ] Custom error classes (AppError, ValidationError, AuthError)
@@ -582,6 +629,7 @@ Reliable transactional communication layer that builds user trust, supports oper
 - [ ] Process-level error handlers (uncaughtException, unhandledRejection)
 
 ### Security Hardening
+
 - [ ] Input validation everywhere (Zod enforced)
 - [ ] Rate limiting (global + auth endpoints)
 - [ ] Secure HTTP headers (Helmet)
@@ -594,6 +642,7 @@ Reliable transactional communication layer that builds user trust, supports oper
 - [ ] Protect against brute-force login attempts
 
 ### Environment & Configuration
+
 - [ ] Environment separation (dev / test / prod)
 - [ ] Strict environment variable validation
 - [ ] Secrets management strategy
@@ -602,6 +651,7 @@ Reliable transactional communication layer that builds user trust, supports oper
 - [ ] Disable Prisma Studio in production
 
 ### Logging & Observability
+
 - [ ] Structured logging (pino / winston)
 - [ ] Log levels (info, warn, error)
 - [ ] Request logging middleware
@@ -610,6 +660,7 @@ Reliable transactional communication layer that builds user trust, supports oper
 - [ ] Centralized log aggregation (future)
 
 ### Monitoring & Health
+
 - [ ] Health check endpoint (/health)
 - [ ] Uptime monitoring integration
 - [ ] Error tracking (Sentry or similar)
@@ -617,6 +668,7 @@ Reliable transactional communication layer that builds user trust, supports oper
 - [ ] Database connection monitoring
 
 ### Performance & Optimization
+
 - [ ] Response compression
 - [ ] Caching strategy (Redis, optional)
 - [ ] Database indexing audit
@@ -625,6 +677,7 @@ Reliable transactional communication layer that builds user trust, supports oper
 - [ ] Query performance review
 
 ### Deployment & DevOps
+
 - [ ] Production build script
 - [ ] Environment-based config loading
 - [ ] Dockerization (optional but strong signal)
@@ -635,6 +688,7 @@ Reliable transactional communication layer that builds user trust, supports oper
 - [ ] Domain + DNS configuration
 
 ### Data Safety
+
 - [ ] Database backup strategy
 - [ ] Migration rollback plan
 - [ ] Seed safety for production
@@ -644,4 +698,3 @@ Reliable transactional communication layer that builds user trust, supports oper
 System that is secure, observable, resilient, scalable, and deployment-ready.
 
 ---
-
