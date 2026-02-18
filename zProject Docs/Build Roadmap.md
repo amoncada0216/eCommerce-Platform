@@ -140,9 +140,9 @@ Stable, typed, validated, and scalable infrastructure ready for feature developm
 
 ### Password Lifecycle
 
-- [ ] Change password endpoint
-- [ ] Verify current password before change
-- [ ] Increment tokenVersion on password change
+- [x] Change password endpoint
+- [x] Verify current password before change
+- [x] Increment tokenVersion on password change
 - [ ] Forgot password flow
 - [ ] Password reset token (expiring, one-time use)
 - [ ] Invalidate reset token after use
