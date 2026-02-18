@@ -22,7 +22,7 @@ export default function LoginPage() {
 
     try {
       const res = await api.post("/api/v1/auth/login", { email, password });
-      setUser(res.data); 
+      setUser(res.data);
       router.push("/");
     } catch {
       setError("Invalid credentials");
@@ -42,15 +42,17 @@ export default function LoginPage() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br /><br />
+        <br />
+        <br />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <br /><br />
-        <button type="submit" disabled={loading}>
+        <br />
+        <br />
+        <button type="submit" disabled={loading} className="cursor-pointer">
           {loading ? "Logging in..." : "Login"}
         </button>
       </form>
