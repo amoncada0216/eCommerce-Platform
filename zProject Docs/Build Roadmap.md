@@ -382,7 +382,7 @@ Cart → Order conversion that is atomic, race-condition safe, price-consistent,
 
 ---
 
-## Phase 7A — Frontend Foundation (Pre-Integration Hardening)
+### Phase 7A — Frontend Foundation (Pre-Integration Hardening)
 
 **Purpose:**  
 Stabilize frontend infrastructure before implementing feature-level integration.  
@@ -420,8 +420,8 @@ No features until foundation is clean.
 
 ### Tooling & Code Quality
 
-- [ ] Review ESLint configuration
-- [ ] Ensure no lint errors 
+- [x] Review ESLint configuration
+- [x] Ensure no lint errors 
 - [ ] Configure Prettier (if needed)
 - [ ] Add `typecheck` script
 - [ ] Add `lint` script

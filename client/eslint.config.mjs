@@ -3,6 +3,8 @@ import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import unicorn from "eslint-plugin-unicorn";
+import prettier from "eslint-config-prettier";
+
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -41,6 +43,7 @@ const eslintConfig = defineConfig([
       ],
     },
   },
+  prettier,
 
   globalIgnores([
     ".next/**",
