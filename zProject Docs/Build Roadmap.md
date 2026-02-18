@@ -422,19 +422,19 @@ No features until foundation is clean.
 
 - [x] Review ESLint configuration
 - [x] Ensure no lint errors 
-- [ ] Configure Prettier (if needed)
-- [ ] Add `typecheck` script
-- [ ] Add `lint` script
-- [ ] Verify clean production build (`next build`)
+- [x] Configure Prettier (if needed)
+- [x] Add `typecheck` script
+- [x] Add `lint` script
+- [x] Verify clean production build (`next build`)
 
 ---
 
 ### Git Hygiene
 
-- [ ] Confirm `.next` is ignored
-- [ ] Confirm `node_modules` is ignored
-- [ ] Confirm `.env.local` is ignored
-- [ ] Confirm no sensitive data is tracked
+- [x] Confirm `.next` is ignored
+- [x] Confirm `node_modules` is ignored
+- [x] Confirm `.env.local` is ignored
+- [x] Confirm no sensitive data is tracked
 
 ---
 
