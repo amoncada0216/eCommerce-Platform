@@ -204,6 +204,14 @@ export async function userChangePassword(req: AuthenticatedRequest, res: Respons
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
+    const isSamePassword = await bcrypt.compare(newPassword, user.passwordHash);
+
+    if (isSamePassword) {
+      return res.status(400).json({
+        message: "New password must be different from current password.",
+      });
+    }
+
     const hashedPassword = await bcrypt.hash(newPassword, 10);
 
     const updatedUser = await prisma.user.update({
