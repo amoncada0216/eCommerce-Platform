@@ -10,7 +10,6 @@ export default function ShopLayout({
 }) {
   return (
     <CartProvider>
-      <Navbar />
       {children}
     </CartProvider>
   );
