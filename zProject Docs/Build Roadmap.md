@@ -440,10 +440,10 @@ No features until foundation is clean.
 
 ### Cross-Origin & Session Verification
 
-- [ ] Confirm backend CORS allows credentials
-- [ ] Confirm cookies appear in browser DevTools
-- [ ] Confirm session persists after refresh
-- [ ] Confirm `/auth/me` works from frontend
+- [x] Confirm backend CORS allows credentials
+- [x] Confirm cookies appear in browser DevTools
+- [x] Confirm session persists after refresh
+- [x] Confirm `/auth/me` works from frontend
 
 **Goal:**  
 Frontend is structurally sound, environment-aware, production-build safe, and session-ready before feature development begins.
