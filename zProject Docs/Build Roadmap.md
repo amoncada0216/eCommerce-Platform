@@ -473,21 +473,21 @@ Focus on correctness, not visual polish.
 
 - [x] Product listing page (basic pagination)
 - [x] Product detail page
-- [ ] Add to cart button
 - [x] Stock availability indicator
 - [x] Basic low-stock warning display
+- [x] Add to cart button
 
 ---
 
 #### Cart Testing Surface
 
-- [ ] Cart page
-- [ ] Increase quantity button
-- [ ] Decrease quantity button
-- [ ] Remove item button
-- [ ] Cart subtotal calculation
-- [ ] Total item count display
-- [ ] Persistent cart badge in navbar
+- [x] Total item count display
+- [x] Persistent cart badge in navbar
+- [x] Cart page
+- [x] Remove item button
+- [x] Cart subtotal calculation
+- [x] Decrease quantity button
+- [x] Increase quantity button
 
 ---
 
