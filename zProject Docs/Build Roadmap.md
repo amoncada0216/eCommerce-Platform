@@ -143,16 +143,17 @@ Stable, typed, validated, and scalable infrastructure ready for feature developm
 - [x] Change password endpoint
 - [x] Verify current password before change
 - [x] Increment tokenVersion on password change
-- [ ] Forgot password flow
-- [ ] Password reset token (expiring, one-time use)
-- [ ] Invalidate reset token after use
+- [x] Prevent password reuse
+- [x] Forgot password flow
+- [x] Password reset token (expiring, one-time use)
+- [x] Invalidate reset token after use
 
 ### Email Verification (Strong Signal)
 
-- [ ] Email verification token
-- [ ] Verification endpoint
-- [ ] Prevent login if email not verified (optional)
-- [ ] Resend verification email
+- [x] Email verification token
+- [x] Verification endpoint
+- [x] Prevent login if email not verified (optional)
+- [x] Resend verification email
 
 ### Token & Session Strategy
 
@@ -550,7 +551,7 @@ Enhance usability, retention, and business credibility after core backend flows 
 - [ ] FAQ page
 - [ ] Return/refund request flow (future)
 - [ ] Email verification reminder
-- [ ] Password reset flow UI
+- [x] Password reset flow UI
 - [ ] Session expiration handling
 - [ ] Success / error toast notifications
 
