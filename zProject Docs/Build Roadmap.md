@@ -471,11 +471,11 @@ Focus on correctness, not visual polish.
 
 #### Product Testing Surface
 
-- [ ] Product listing page (basic pagination)
-- [ ] Product detail page
+- [x] Product listing page (basic pagination)
+- [x] Product detail page
 - [ ] Add to cart button
-- [ ] Stock availability indicator
-- [ ] Basic low-stock warning display
+- [x] Stock availability indicator
+- [x] Basic low-stock warning display
 
 ---
 
