@@ -196,6 +196,9 @@ export async function getProductBySlug(req: Request, res: Response) {
 
     const { slug } = result.data;
 
+    console.log("Requested slug:", slug);
+    console.log("Params:", req.params);
+
     const product = await prisma.product.findFirst({
       where: {
         slug,
