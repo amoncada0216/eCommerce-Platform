@@ -27,6 +27,10 @@ model User {
   failedLoginAttempts Int       @default(0)
   lockUntil           DateTime?
 
+  emailVerified              Boolean   @default(false)
+  emailVerificationTokenHash String?
+  emailVerificationExpiresAt DateTime?
+
   passwordResetTokenHash String?
   passwordResetExpiresAt DateTime?
 

@@ -41,8 +41,25 @@ export async function registerUser(req: Request, res: Response) {
         tokenVersion: 0,
         role: Role.USER,
         isActive: true,
+        emailVerified: false,
       },
     });
+
+    // Generate email verification token
+    const rawToken = crypto.randomBytes(32).toString("hex");
+
+    const hashedToken = crypto.createHash("sha256").update(rawToken).digest("hex");
+
+    await prisma.user.update({
+      where: { id: newUser.id },
+      data: {
+        emailVerificationTokenHash: hashedToken,
+        emailVerificationExpiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24h
+      },
+    });
+
+    // DEV ONLY
+    console.log("Email verification token:", rawToken);
 
     const token = generateToken(newUser.id, newUser.tokenVersion, newUser.role);
 
@@ -56,6 +73,8 @@ export async function registerUser(req: Request, res: Response) {
     return res.status(201).json({
       id: newUser.id,
       email: newUser.email,
+      emailVerified: false,
+      message: "Registration successful. Please verify your email.",
     });
   } catch (_error) {
     return res.status(500).json({ message: "Server error." });
@@ -293,10 +312,7 @@ export async function resetPassword(req: Request, res: Response) {
       return res.status(400).json({ message: "Invalid request." });
     }
 
-    const hashedToken = crypto
-      .createHash("sha256")
-      .update(token)
-      .digest("hex");
+    const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
 
     const user = await prisma.user.findFirst({
       where: {
@@ -324,6 +340,88 @@ export async function resetPassword(req: Request, res: Response) {
     });
 
     return res.status(200).json({ message: "Password reset successful." });
+  } catch {
+    return res.status(500).json({ message: "Server error." });
+  }
+}
+
+export async function verifyEmail(req: Request, res: Response) {
+  try {
+    const { token } = req.body;
+
+    if (!token) {
+      return res.status(400).json({ message: "Invalid request." });
+    }
+
+    const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+
+    const user = await prisma.user.findFirst({
+      where: {
+        emailVerificationTokenHash: hashedToken,
+        emailVerificationExpiresAt: {
+          gt: new Date(),
+        },
+      },
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: "Invalid or expired token." });
+    }
+
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        emailVerified: true,
+        emailVerificationTokenHash: null,
+        emailVerificationExpiresAt: null,
+      },
+    });
+
+    return res.status(200).json({
+      message: "Email successfully verified.",
+    });
+  } catch {
+    return res.status(500).json({ message: "Server error." });
+  }
+}
+
+export async function resendVerification(req: Request, res: Response) {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ message: "Email is required." });
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    // Always return generic response (prevent enumeration)
+    if (!user || user.emailVerified) {
+      return res.status(200).json({
+        message: "A verification email has been sent.",
+      });
+    }
+
+    const rawToken = crypto.randomBytes(32).toString("hex");
+
+    const hashedToken = crypto.createHash("sha256").update(rawToken).digest("hex");
+
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        emailVerificationTokenHash: hashedToken,
+        emailVerificationExpiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      },
+    });
+
+    // DEV ONLY
+    console.log("Resent verification token:", rawToken);
+
+    return res.status(200).json({
+      message: "A verification email has been sent.",
+    });
   } catch {
     return res.status(500).json({ message: "Server error." });
   }

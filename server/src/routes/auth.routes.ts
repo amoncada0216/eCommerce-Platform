@@ -7,8 +7,10 @@ import {
   loginUser,
   logoutUser,
   registerUser,
+  resendVerification,
   resetPassword,
   userChangePassword,
+  verifyEmail,
 } from "@/controllers/auth.controller.js";
 import { loginRateLimiter } from "@/middleware/rate-limit.middleware.js";
 
@@ -27,5 +29,11 @@ router.post("/change-password", authMiddleware, userChangePassword);
 router.post("/forgot-password", forgotPassword);
 
 router.post("/reset-password", resetPassword);
+
+router.post("/verify-email", verifyEmail);
+
+router.post("/resend-verification", resendVerification);
+
+
 
 export default router;
