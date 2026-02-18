@@ -409,19 +409,19 @@ No features until foundation is clean.
 
 ### Environment & Configuration
 
-- [ ] Create `.env.local`
-- [ ] Create `.env.example`
-- [ ] Add `NEXT_PUBLIC_API_URL`
-- [ ] Ensure environment-based API configuration
-- [ ] Confirm frontend works with backend CORS
-- [ ] Verify cookies are sent with `withCredentials`
+- [x] Create `.env.local`
+- [x] Create `.env.example`
+- [x] Add `NEXT_PUBLIC_API_URL`
+- [x] Ensure environment-based API configuration
+- [x] Confirm frontend works with backend CORS
+- [x] Verify cookies are sent with `withCredentials`
 
 ---
 
 ### Tooling & Code Quality
 
 - [ ] Review ESLint configuration
-- [ ] Ensure no lint errors
+- [ ] Ensure no lint errors 
 - [ ] Configure Prettier (if needed)
 - [ ] Add `typecheck` script
 - [ ] Add `lint` script
