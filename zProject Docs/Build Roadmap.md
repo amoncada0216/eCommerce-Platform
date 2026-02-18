@@ -390,7 +390,7 @@ No features until foundation is clean.
 
 ---
 
-### Project Structure & Organization
+#### Project Structure & Organization
 
 - [x] Remove default Next.js demo content
 - [x] Define folder structure:
@@ -407,7 +407,7 @@ No features until foundation is clean.
 
 ---
 
-### Environment & Configuration
+#### Environment & Configuration
 
 - [x] Create `.env.local`
 - [x] Create `.env.example`
@@ -418,7 +418,7 @@ No features until foundation is clean.
 
 ---
 
-### Tooling & Code Quality
+#### Tooling & Code Quality
 
 - [x] Review ESLint configuration
 - [x] Ensure no lint errors 
@@ -429,7 +429,7 @@ No features until foundation is clean.
 
 ---
 
-### Git Hygiene
+#### Git Hygiene
 
 - [x] Confirm `.next` is ignored
 - [x] Confirm `node_modules` is ignored
@@ -438,7 +438,7 @@ No features until foundation is clean.
 
 ---
 
-### Cross-Origin & Session Verification
+#### Cross-Origin & Session Verification
 
 - [x] Confirm backend CORS allows credentials
 - [x] Confirm cookies appear in browser DevTools
@@ -456,20 +456,20 @@ Frontend is structurally sound, environment-aware, production-build safe, and se
 Create a functional frontend that acts as a testing surface for backend features.  
 Focus on correctness, not visual polish.
 
-### Core Infrastructure
+#### Core Infrastructure
 
-- [ ] Axios instance with `withCredentials: true`
-- [ ] Centralized API configuration
-- [ ] Global API error interceptor
-- [ ] Auth context (fetch current user on app load)
-- [ ] Login page
-- [ ] Logout flow
-- [ ] Basic protected route wrapper
-- [ ] Role-based route guard (admin pages)
+- [x] Axios instance with `withCredentials: true`
+- [x] Centralized API configuration
+- [x] Global API error interceptor
+- [x] Auth context (fetch current user on app load)
+- [x] Login page
+- [x] Logout flow
+- [x] Basic protected route wrapper
+- [x] Role-based route guard (admin pages)
 
 ---
 
-### Product Testing Surface
+#### Product Testing Surface
 
 - [ ] Product listing page (basic pagination)
 - [ ] Product detail page
@@ -479,7 +479,7 @@ Focus on correctness, not visual polish.
 
 ---
 
-### Cart Testing Surface
+#### Cart Testing Surface
 
 - [ ] Cart page
 - [ ] Increase quantity button
@@ -491,7 +491,7 @@ Focus on correctness, not visual polish.
 
 ---
 
-### Checkout Testing Surface
+#### Checkout Testing Surface
 
 - [ ] Basic checkout form (shipping info only)
 - [ ] Order summary preview
