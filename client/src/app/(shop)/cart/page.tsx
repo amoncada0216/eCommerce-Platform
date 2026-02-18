@@ -36,7 +36,7 @@ export default function CartPage() {
 
           <p>Total: ${item.price * item.quantity}</p>
 
-          <button onClick={() => removeFromCart(item.id)}>Remove</button>
+          <button onClick={() => removeFromCart(item.id)} className="cursor-pointer">Remove</button>
         </div>
       ))}
 
