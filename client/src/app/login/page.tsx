@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { api } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
@@ -55,6 +56,11 @@ export default function LoginPage() {
         <button type="submit" disabled={loading} className="cursor-pointer">
           {loading ? "Logging in..." : "Login"}
         </button>
+        <br />
+        <br />
+        <div>
+          <Link href="/forgot-password">Forgot password?</Link>
+        </div>
       </form>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
