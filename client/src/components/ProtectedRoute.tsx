@@ -14,7 +14,7 @@ export default function ProtectedRoute({ children }: Props) {
 
   useEffect(() => {
     if (!loading && !user) {
-      router.replace("/api/v1/login");
+      router.replace("/login");
     }
   }, [user, loading, router]);
 
