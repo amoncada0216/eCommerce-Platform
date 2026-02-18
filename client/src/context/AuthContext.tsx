@@ -24,7 +24,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     api
-      .get("/auth/me")
+      .get("/api/v1/auth/me")
       .then((res) => {
         setUser(res.data);
       })
@@ -37,7 +37,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   async function logout() {
-    await api.delete("/auth/logout");
+    await api.delete("/api/v1/auth/logout");
     setUser(null);
   }
 
