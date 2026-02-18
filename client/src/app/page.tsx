@@ -8,9 +8,8 @@ function HomeContent() {
 
   return (
     <main>
-      <h1>Ecommerce v1</h1>
       <p>Welcome {user?.email}</p>
-      <button onClick={logout}>Logout</button>
+      <button onClick={logout} className="cursor-pointer">Logout</button>
     </main>
   );
 }
