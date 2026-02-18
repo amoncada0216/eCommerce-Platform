@@ -1,0 +1,36 @@
+"use client";
+
+import Link from "next/link";
+import { useCart } from "@/context/CartContext";
+
+export default function Navbar() {
+  const { totalItems } = useCart();
+
+  return (
+    <nav className="w-full border-b">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <Link
+          href="/"
+          className="text-lg"
+        >
+          eCommerce
+        </Link>
+
+        <div className="flex items-center gap-6">
+          <Link href="/products">
+            Products
+          </Link>
+
+          <Link href="/cart" className="relative">
+            Cart
+            {totalItems > 0 && (
+              <span className="ml-2">
+                {totalItems}
+              </span>
+            )}
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+}

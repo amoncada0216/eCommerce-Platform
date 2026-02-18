@@ -18,6 +18,7 @@ export default function AddToCartButton(props: Props) {
   return (
     <button
       disabled={isOutOfStock}
+      className="cursor-pointer"
       onClick={() =>
         addToCart({
           id: props.id,

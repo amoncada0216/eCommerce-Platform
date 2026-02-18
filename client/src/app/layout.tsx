@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { AuthProvider } from "@/context/AuthContext";
-import { CartProvider } from "@/context/CartContext";
 
 import "./globals.css";
+import ClientLayout from "@/components/ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,16 +21,12 @@ export const metadata: Metadata = {
   description: "eCommerce description.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <AuthProvider>
-          <CartProvider>{children}</CartProvider>
+          <ClientLayout>{children}</ClientLayout>
         </AuthProvider>
       </body>
     </html>
