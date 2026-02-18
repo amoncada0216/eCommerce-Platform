@@ -1,3 +1,5 @@
+import AddToCartButton from "@/components/AddToCartButton";
+
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -35,7 +37,15 @@ export default async function ProductDetailPage({ params }: PageProps) {
         <p style={{ color: "orange" }}>Only {product.stock} left in stock</p>
       )}
 
-      {!isOutOfStock && <button>Add to Cart</button>}
+      {!isOutOfStock && (
+        <AddToCartButton
+          id={product.id}
+          name={product.name}
+          price={product.price}
+          imageUrl={product.imageUrl}
+          stock={product.stock}
+        />
+      )}
     </div>
   );
 }
