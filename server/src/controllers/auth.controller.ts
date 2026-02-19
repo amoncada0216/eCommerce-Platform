@@ -73,6 +73,7 @@ export async function registerUser(req: Request, res: Response) {
     return res.status(201).json({
       id: newUser.id,
       email: newUser.email,
+      role: newUser.role,
       emailVerified: false,
       message: "Registration successful. Please verify your email.",
     });

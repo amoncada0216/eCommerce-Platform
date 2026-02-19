@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
 import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
 
@@ -24,7 +25,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-6">
           {user?.role === "ADMIN" && <Link href="/admin">Admin Panel</Link>}
-          
+
           <Link href="/products">Products</Link>
 
           <Link href="/cart" className="relative">
@@ -37,7 +38,10 @@ export default function Navbar() {
               Logout
             </button>
           ) : (
-            <Link href="/login">Login</Link>
+            <>
+              <Link href="/login">Login</Link>
+              <Link href="/register">Register</Link>
+            </>
           )}
         </div>
       </div>
