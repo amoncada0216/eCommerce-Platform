@@ -189,12 +189,12 @@ Authentication system that is secure, lifecycle-aware, revocation-capable, and p
 - [x] Public: Get single product
 - [x] Add validation layer
 - [x] Slug uniqueness validation strategy
-- [ ] Admin: Bulk create products (JSON array input — primary method)
-- [ ] Admin: Bulk update products (JSON array input)
-- [ ] Enforce atomic bulk operations (transaction-based)
+- [x] Admin: Bulk create products (JSON array input — primary method)
+- [x] Admin: Bulk update products (JSON array input)
+- [x] Enforce atomic bulk operations (transaction-based)
 - [ ] Admin: CSV import endpoint
 - [ ] CSV validation + transformation pipeline
-- [ ] Slug conflict resolution in bulk operations
+- [x] Slug conflict resolution in bulk operations
 - [ ] Bulk stock adjustment endpoint
 
 **Architecture Decision:**
@@ -259,32 +259,32 @@ Persistent, race-condition-safe, stock-aware cart system ready for real checkout
 
 ### Core Models
 
-- [ ] Create Order model
-- [ ] Create OrderItem model
-- [ ] Create OrderStatus enum
-- [ ] Add order status history tracking (timeline log)
+- [x] Create Order model
+- [x] Create OrderItem model
+- [x] Create OrderStatus enum
+- [x] Add order status history tracking (timeline log)
 
 ### Checkout Flow
 
-- [ ] Implement checkout endpoint
-- [ ] Validate cart is not empty
-- [ ] Validate stock for every item
-- [ ] Re-fetch product price at checkout (no trusting client)
-- [ ] Calculate total server-side
-- [ ] Validate stock again inside transaction
-- [ ] Use database transaction (atomic)
-- [ ] Create Order
-- [ ] Create OrderItems (with priceAtPurchase + name snapshot)
-- [ ] Reduce product stock
-- [ ] Clear cart after success
+- [x] Implement checkout endpoint
+- [x] Validate cart is not empty
+- [x] Validate stock for every item
+- [x] Re-fetch product price at checkout (no trusting client)
+- [x] Calculate total server-side
+- [x] Validate stock again inside transaction
+- [x] Use database transaction (atomic)
+- [x] Create Order
+- [x] Create OrderItems (with priceAtPurchase + name snapshot)
+- [x] Reduce product stock
+- [x] Clear cart after success
 
 ### Data Integrity
 
-- [ ] Store shipping snapshot in order
+- [x] Store shipping snapshot in order
 - [ ] Store billing snapshot (if applicable)
 - [ ] Store payment status field
-- [ ] Prevent duplicate checkout submissions (idempotency key)
-- [ ] Prevent checkout if order already created from cart
+- [x] Prevent duplicate checkout submissions (idempotency key)
+- [x] Prevent checkout if order already created from cart
 - [ ] Lock cart during transaction (optional advanced)
 
 ### Security & Edge Cases
@@ -494,12 +494,12 @@ Focus on correctness, not visual polish.
 
 #### Checkout Testing Surface
 
-- [ ] Basic checkout form (shipping info only)
-- [ ] Order summary preview
-- [ ] Submit order button
-- [ ] Duplicate submission prevention
-- [ ] Success page
-- [ ] Error handling display
+- [x] Basic checkout form (shipping info only)
+- [x] Order summary preview
+- [x] Submit order button
+- [x] Duplicate submission prevention
+- [x] Success page
+- [x] Error handling display
 
 **Goal:**  
 Visually validate backend logic, stress-test cart and checkout behavior, and expose race-condition or state bugs early.
@@ -765,3 +765,10 @@ Reliable transactional communication layer that builds user trust, supports oper
 System that is secure, observable, resilient, scalable, and deployment-ready.
 
 ---
+
+## To Add:
+
+- Change currency
+- Login with google, facebook
+- Email functionality
+- Admin panel stats and graphs
