@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
 import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
 
@@ -13,7 +12,7 @@ export default function Navbar() {
 
   function handleLogout() {
     logout();
-    router.push("/login");
+    router.push("/products");
   }
 
   return (
@@ -28,20 +27,15 @@ export default function Navbar() {
 
           <Link href="/cart" className="relative">
             Cart
-            {totalItems > 0 && (
-              <span className="ml-2">
-                {totalItems}
-              </span>
-            )}
+            {totalItems > 0 && <span className="ml-2">{totalItems}</span>}
           </Link>
 
-          {user && (
-            <button
-              onClick={handleLogout}
-              className="cursor-pointer"
-            >
+          {user ? (
+            <button onClick={handleLogout} className="cursor-pointer">
               Logout
             </button>
+          ) : (
+            <Link href="/login">Login</Link>
           )}
         </div>
       </div>
