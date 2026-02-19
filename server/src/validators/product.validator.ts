@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const createProductSchema = z.object({
+export const bulkAddProductsSchema = z.object({
   name: z.string().trim().min(3).max(120),
 
   brand: z.string().trim().min(2).max(60),
@@ -11,7 +11,7 @@ export const createProductSchema = z.object({
 
   stock: z.number().int().nonnegative(),
 
-  imageUrl: z.string().url().optional(),
+  imageUrl: z.url().optional(),
 });
 
 export const updateProductSchema = z
@@ -26,7 +26,7 @@ export const updateProductSchema = z
 
     stock: z.number().int().nonnegative().optional(),
 
-    imageUrl: z.string().url().optional(),
+    imageUrl: z.url().optional(),
 
     isActive: z.boolean().optional(),
   })
