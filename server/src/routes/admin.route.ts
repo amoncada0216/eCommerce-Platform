@@ -7,9 +7,9 @@ import { bulkCommitProducts, bulkPreviewProducts } from "@/controllers/admin.con
 const router = Router();
 
 // Preview (detect conflicts, no DB writes)
-router.post("/manage-products/bulk-preview", authMiddleware, requireAdmin, bulkPreviewProducts);
+router.post("/bulk-preview", authMiddleware, requireAdmin, bulkPreviewProducts);
 
 // Commit (create / update / skip — atomic)
-router.post("/manage-products/bulk-commit", authMiddleware, requireAdmin, bulkCommitProducts);
+router.post("/bulk-commit", authMiddleware, requireAdmin, bulkCommitProducts);
 
 export default router;

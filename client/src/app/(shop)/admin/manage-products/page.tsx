@@ -38,7 +38,7 @@ export default function AdminProductsPage() {
     try {
       const parsed = JSON.parse(jsonInput);
 
-      const res = await api.post("/api/v1/admin/manage-products/bulk-preview", parsed);
+      const res = await api.post("/api/v1/admin/bulk-preview", parsed);
 
       setPreview(res.data);
     } catch {
@@ -68,7 +68,7 @@ export default function AdminProductsPage() {
         })),
       ];
 
-      const res = await api.post("/api/v1/admin/manage-products/bulk-commit", operations);
+      const res = await api.post("/api/v1/admin/bulk-commit", operations);
 
       setMessage(
         `Created: ${res.data.created}, Updated: ${res.data.updated}, Skipped: ${res.data.skipped}`,
