@@ -42,7 +42,7 @@ export default function CartPage() {
 
       <h2>Subtotal: ${subtotal}</h2>
 
-      <button onClick={clearCart}>Clear Cart</button>
+      <button onClick={clearCart} className="cursor-pointer">Clear Cart</button>
     </div>
   );
 }
