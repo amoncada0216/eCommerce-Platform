@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 import { api } from "@/lib/api";
 
 type ProductInput = {
@@ -28,7 +30,9 @@ export default function AdminProductsPage() {
   const [error, setError] = useState<string | null>(null);
   const [conflictActions, setConflictActions] = useState<
     Record<string, "update" | "skip">
-  >({});
+    >({});
+  
+  const router = useRouter();
 
   async function handlePreview() {
     setLoading(true);
@@ -85,6 +89,13 @@ export default function AdminProductsPage() {
 
   return (
     <div style={{ padding: 40 }}>
+      <button
+        onClick={() => router.push("/admin")}
+        className="cursor-pointer"
+        style={{ marginBottom: 20 }}
+      >
+        ← Back to Admin Panel
+      </button>
       <h1>Admin Product Manager</h1>
       <br />
       <textarea
