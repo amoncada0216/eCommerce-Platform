@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma.js";
+import { Prisma } from "@prisma/client";
 
 export function createBaseSlug(name: string): string {
   return name
@@ -11,14 +11,15 @@ export function createBaseSlug(name: string): string {
     .replace(/-+/g, "-"); // collapse multiple dashes
 }
 
-export async function generateUniqueSlug(name: string): Promise<string> {
+export async function generateUniqueSlugTx(
+  tx: Prisma.TransactionClient,
+  name: string,
+): Promise<string> {
   const baseSlug = createBaseSlug(name);
 
-  const existing = await prisma.product.findMany({
+  const existing = await tx.product.findMany({
     where: {
-      slug: {
-        startsWith: baseSlug,
-      },
+      slug: { startsWith: baseSlug },
     },
     select: { slug: true },
   });

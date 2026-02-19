@@ -2,12 +2,12 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
-import prisma from "@/lib/prisma.js";
-import authRouter from "@/routes/auth.routes.js";
-import productRouter from "@/routes/product.routes.js";
-import cartRouter from "@/routes/cart.routes.js";
-import orderRouter from "./routes/order.routes.js";
-
+import prisma from "@/lib/prisma.lib.js";
+import authRouter from "@/routes/auth.route.js";
+import productRouter from "@/routes/product.route.js";
+import cartRouter from "@/routes/cart.route.js";
+import orderRouter from "./routes/order.route.js";
+import adminRouter from "./routes/admin.route.js";
 
 const app = express();
 
@@ -34,5 +34,6 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/cart", cartRouter);
 app.use("/api/v1/orders", orderRouter);
+app.use("/api/v1/admin", adminRouter);
 
 export default app;

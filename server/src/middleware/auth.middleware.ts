@@ -2,8 +2,8 @@ import type { Request, Response, NextFunction } from "express";
 import { jwtVerify } from "jose";
 
 import { Role } from "@prisma/client";
-import { env } from "@/config/env.js";
-import prisma from "@/lib/prisma.js";
+import { env } from "@/config/env.config.js";
+import prisma from "@/lib/prisma.lib.js";
 
 const secret = new TextEncoder().encode(env.JWT_SECRET);
 
@@ -15,7 +15,7 @@ export interface AuthenticatedRequest extends Request {
 export async function authMiddleware(
   req: AuthenticatedRequest,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ): Promise<void> {
   const token = req.cookies.token;
 

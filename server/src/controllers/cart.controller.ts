@@ -1,6 +1,6 @@
 import type { Response } from "express";
 
-import prisma from "@/lib/prisma.js";
+import prisma from "@/lib/prisma.lib.js";
 import type { AuthenticatedRequest } from "@/middleware/auth.middleware.js";
 import { addToCartSchema } from "@/validators/cart.validator.js";
 

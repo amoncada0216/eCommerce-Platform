@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prisma from "@/lib/prisma.js";
+import prisma from "@/lib/prisma.lib.js";
 
 import { Prisma } from "@prisma/client";
 import { createOrderSchema } from "@/validators/order.validator.js";

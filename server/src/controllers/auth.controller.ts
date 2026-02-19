@@ -4,10 +4,10 @@ import crypto from "crypto";
 
 import { Role } from "@prisma/client";
 import { changePasswordSchema, registerSchema } from "@/validators/auth.validator.js";
-import prisma from "@/lib/prisma.js";
-import { generateToken } from "@/lib/jose.js";
+import prisma from "@/lib/prisma.lib.js";
+import { generateToken } from "@/lib/jose.lib.js";
 import type { AuthenticatedRequest } from "@/middleware/auth.middleware.js";
-import { env } from "@/config/env.js";
+import { env } from "@/config/env.config.js";
 
 export async function registerUser(req: Request, res: Response) {
   try {

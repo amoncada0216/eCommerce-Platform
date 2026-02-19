@@ -1,6 +1,6 @@
 import { SignJWT } from "jose";
 import { Role } from "@prisma/client";
-import { env } from "@/config/env.js";
+import { env } from "@/config/env.config.js";
 
 const secret = new TextEncoder().encode(env.JWT_SECRET);
 
