@@ -2,6 +2,7 @@ import { Router } from "express";
 
 import { authMiddleware } from "@/middleware/auth.middleware.js";
 import { requireAdmin } from "@/middleware/admin.middleware.js";
+import { bulkCommitProducts, bulkPreviewProducts } from "@/controllers/admin.controller.js";
 
 const router = Router();
 

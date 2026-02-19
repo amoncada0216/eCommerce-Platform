@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const bulkAddProductsSchema = z.object({
+export const createProductSchema = z.object({
   name: z.string().trim().min(3).max(120),
 
   brand: z.string().trim().min(2).max(60),
@@ -13,6 +13,20 @@ export const bulkAddProductsSchema = z.object({
 
   imageUrl: z.url().optional(),
 });
+
+export const bulkAddProductsSchema = z
+  .array(createProductSchema)
+  .min(1, "At least one product is required.");
+
+export const bulkCommitSchema = z
+  .array(
+    z.object({
+      action: z.enum(["create", "update", "skip"]),
+      id: z.string().uuid().optional(),
+      product: createProductSchema,
+    }),
+  )
+  .min(1);
 
 export const updateProductSchema = z
   .object({
@@ -33,6 +47,15 @@ export const updateProductSchema = z
   .refine((data) => Object.keys(data).length > 0, {
     message: "At least one field must be provided.",
   });
+
+export const bulkUpdateProductsSchema = z
+  .array(
+    z.object({
+      id: z.string().uuid(),
+      data: updateProductSchema,
+    }),
+  )
+  .min(1, "At least one product update is required.");
 
 export const listProductsQuerySchema = z.object({
   page: z
@@ -57,3 +80,4 @@ export const productSlugParamSchema = z.object({
     .max(200, "Slug too long")
     .regex(/^[a-z0-9-]+$/, "Invalid slug format"),
 });
+
