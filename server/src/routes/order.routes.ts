@@ -3,6 +3,6 @@ import { Router } from "express";
 
 const router = Router();
 
-router.post("/orders", createOrder);
+router.post("/", createOrder);
 
 export default router;

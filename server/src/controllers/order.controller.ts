@@ -17,6 +17,21 @@ export async function createOrder(req: Request, res: Response) {
       });
     }
 
+    const idempotencyKey = req.header("Idempotency-Key");
+
+    if (!idempotencyKey) {
+      return res.status(400).json({ message: "Missing Idempotency-Key header." });
+    }
+
+    // Check if order already exists for this key
+    const existingOrder = await prisma.order.findUnique({
+      where: { idempotencyKey },
+    });
+
+    if (existingOrder) {
+      return res.status(200).json({ orderId: existingOrder.id });
+    }
+
     const { items, shipping } = result.data;
 
     const productIds = items.map((i) => i.productId);
@@ -75,6 +90,7 @@ export async function createOrder(req: Request, res: Response) {
 
       const createdOrder = await tx.order.create({
         data: {
+          idempotencyKey,
           subtotal,
           total,
           currency: "USD",
