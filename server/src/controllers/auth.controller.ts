@@ -170,6 +170,7 @@ export async function loginUser(req: Request, res: Response) {
     return res.status(200).json({
       id: user.id,
       email: user.email,
+      role: user.role,
     });
   } catch (_error) {
     return res.status(500).json({ message: "Server error." });

@@ -23,8 +23,14 @@ export default function LoginPage() {
 
     try {
       const res = await api.post("/api/v1/auth/login", { email, password });
+
       setUser(res.data);
-      router.push("/");
+
+      if (res.data.role === "ADMIN") {
+        router.push("/admin");
+      } else {
+        router.push("/products");
+      }
     } catch {
       setError("Invalid credentials");
     } finally {
