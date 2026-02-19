@@ -23,6 +23,8 @@ export default function Navbar() {
         </Link>
 
         <div className="flex items-center gap-6">
+          {user?.role === "ADMIN" && <Link href="/admin">Admin Panel</Link>}
+          
           <Link href="/products">Products</Link>
 
           <Link href="/cart" className="relative">
