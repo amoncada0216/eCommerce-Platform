@@ -7,9 +7,10 @@ import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
+  const router = useRouter();
+
   const { totalItems } = useCart();
   const { user, logout } = useAuth();
-  const router = useRouter();
 
   function handleLogout() {
     logout();
