@@ -3,6 +3,7 @@ import { Router } from "express";
 import { authMiddleware } from "@/middleware/auth.middleware.js";
 import {
   addCartItem,
+  clearCart,
   decreaseCartItem,
   getCurrentCart,
   increaseCartItem,
@@ -23,5 +24,7 @@ router.post("/increase/:id", authMiddleware, increaseCartItem);
 router.post("/decrease/:id", authMiddleware, decreaseCartItem);
 
 router.post("/merge", authMiddleware, mergeCart);
+
+router.delete("/clear", authMiddleware, clearCart);
 
 export default router;

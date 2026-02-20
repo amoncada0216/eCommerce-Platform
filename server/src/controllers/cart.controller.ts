@@ -327,3 +327,30 @@ export async function mergeCart(req: AuthenticatedRequest, res: Response) {
     return res.status(500).json({ message: "Merge failed." });
   }
 }
+
+export async function clearCart(req: AuthenticatedRequest, res: Response) {
+  try {
+    const userId = req.userId;
+
+    if (!userId) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const cart = await prisma.cart.findUnique({
+      where: { userId },
+      include: { items: true },
+    });
+
+    if (!cart) {
+      return res.status(200).json({ message: "Cart already empty" });
+    }
+
+    await prisma.cartItem.deleteMany({
+      where: { cartId: cart.id },
+    });
+
+    return res.status(200).json({ message: "Cart cleared" });
+  } catch {
+    return res.status(500).json({ message: "Failed to clear cart" });
+  }
+}
