@@ -1,9 +1,13 @@
 "use client";
 
-import { createContext, useContext, useSyncExternalStore } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+
+import { useAuth } from "./AuthContext";
+import { api } from "@/lib/api";
 
 type CartItem = {
-  id: string;
+  cartItemId?: string;
+  id: string; // product id
   name: string;
   price: number;
   imageUrl: string;
@@ -15,110 +19,181 @@ type CartContextType = {
   items: CartItem[];
   totalItems: number;
   subtotal: number;
-  addToCart: (item: Omit<CartItem, "quantity">) => void;
-  removeFromCart: (id: string) => void;
-  clearCart: () => void;
-  increaseQuantity: (id: string) => void;
-  decreaseQuantity: (id: string) => void;
+  addToCart: (item: Omit<CartItem, "quantity">) => Promise<void>;
+  removeFromCart: (id: string) => Promise<void>;
+  clearCart: () => Promise<void>;
+  increaseQuantity: (id: string) => Promise<void>;
+  decreaseQuantity: (id: string) => Promise<void>;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// Stable in-memory cache
-let cartCache: CartItem[] = [];
-
-function readCart(): CartItem[] {
-  if (typeof window === "undefined") return cartCache;
-
-  const stored = localStorage.getItem("cart");
-  const parsed = stored ? JSON.parse(stored) : [];
-
-  // Only update cache if changed
-  if (JSON.stringify(parsed) !== JSON.stringify(cartCache)) {
-    cartCache = parsed;
-  }
-
-  return cartCache;
-}
-
-function subscribe(callback: () => void) {
-  window.addEventListener("storage", callback);
-  return () => window.removeEventListener("storage", callback);
-}
-
-function writeCart(updated: CartItem[]) {
-  cartCache = updated;
-  localStorage.setItem("cart", JSON.stringify(updated));
-  window.dispatchEvent(new Event("storage"));
-}
-
-const EMPTY_CART: CartItem[] = [];
-
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const items = useSyncExternalStore(subscribe, readCart, () => EMPTY_CART);
+  const { user } = useAuth();
+  const [items, setItems] = useState<CartItem[]>([]);
 
-  function addToCart(product: Omit<CartItem, "quantity">) {
-    const existing = items.find((i) => i.id === product.id);
-
-    let updated;
-
-    if (existing) {
-      if (existing.quantity >= existing.stock) return;
-      updated = items.map((i) =>
-        i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i,
-      );
-    } else {
-      updated = [...items, { ...product, quantity: 1 }];
+  // Initial load
+  useEffect(() => {
+    async function initialize() {
+      if (user) {
+        // Logged in → fetch DB cart
+        const res = await api.get("/api/v1/cart");
+        setItems(res.data.items ?? []);
+      } else {
+        // Logged out → load localStorage
+        const raw = localStorage.getItem("cart");
+        const local = raw ? JSON.parse(raw) : [];
+        setItems(local);
+      }
     }
 
-    writeCart(updated);
+    initialize();
+  }, [user]);
+
+  // Persist to localStorage when logged out
+  useEffect(() => {
+    if (!user) {
+      localStorage.setItem("cart", JSON.stringify(items));
+    }
+  }, [items, user]);
+
+  // Merge on login
+  useEffect(() => {
+    if (!user) return;
+
+    const raw = localStorage.getItem("cart");
+    const local: CartItem[] = raw ? JSON.parse(raw) : [];
+
+    if (!local.length) return;
+
+    async function merge() {
+      await api.post("/api/v1/cart/merge", {
+        items: local.map((item) => ({
+          productId: item.id,
+          quantity: item.quantity,
+        })),
+      });
+
+      localStorage.removeItem("cart");
+
+      const res = await api.get("/api/v1/cart");
+      setItems(res.data.items ?? []);
+    }
+
+    merge();
+  }, [user]);
+
+  async function addToCart(product: Omit<CartItem, "quantity">) {
+    if (!user) {
+      const existing = items.find((i) => i.id === product.id);
+
+      if (existing) {
+        if (existing.quantity >= existing.stock) return;
+        setItems(
+          items.map((i) =>
+            i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i,
+          ),
+        );
+      } else {
+        setItems([...items, { ...product, quantity: 1 }]);
+      }
+    } else {
+      const existing = items.find((i) => i.id === product.id);
+
+      // Prevent exceeding stock
+      if (existing && existing.quantity >= existing.stock) return;
+
+      await api.post("/api/v1/cart/add-cart-item", {
+        productId: product.id,
+      });
+
+      const res = await api.get("/api/v1/cart");
+      setItems(res.data.items ?? []);
+    }
   }
 
-  function removeFromCart(id: string) {
-    writeCart(items.filter((i) => i.id !== id));
+  async function increaseQuantity(id: string) {
+    if (!user) {
+      setItems(
+        items.map((i) =>
+          i.id === id && i.quantity < i.stock ? { ...i, quantity: i.quantity + 1 } : i,
+        ),
+      );
+    } else {
+      const item = items.find((i) => i.id === id);
+      if (!item?.cartItemId) return;
+
+      // prevent invalid request
+      if (item.quantity >= item.stock) return;
+
+      await api.post(`/api/v1/cart/increase/${item.cartItemId}`);
+      const res = await api.get("/api/v1/cart");
+      setItems(res.data.items ?? []);
+    }
   }
 
-  function clearCart() {
-    writeCart([]);
+  async function decreaseQuantity(id: string) {
+    if (!user) {
+      setItems(
+        items
+          .map((i) => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i))
+          .filter((i) => i.quantity > 0),
+      );
+    } else {
+      const item = items.find((i) => i.id === id);
+      if (!item?.cartItemId) return;
+
+      await api.post(`/api/v1/cart/decrease/${item.cartItemId}`);
+      const res = await api.get("/api/v1/cart");
+      setItems(res.data.items ?? []);
+    }
   }
 
-  function increaseQuantity(id: string) {
-    writeCart(
-      items.map((i) =>
-        i.id === id && i.quantity < i.stock ? { ...i, quantity: i.quantity + 1 } : i,
-      ),
-    );
+  async function removeFromCart(id: string) {
+    if (!user) {
+      setItems(items.filter((i) => i.id !== id));
+    } else {
+      const item = items.find((i) => i.id === id);
+      if (!item?.cartItemId) return;
+
+      await api.delete(`/api/v1/cart/remove/${item.cartItemId}`);
+      const res = await api.get("/api/v1/cart");
+      setItems(res.data.items ?? []);
+    }
   }
 
-  function decreaseQuantity(id: string) {
-    writeCart(
-      items
-        .map((i) => (i.id === id ? { ...i, quantity: i.quantity - 1 } : i))
-        .filter((i) => i.quantity > 0),
-    );
+  async function clearCart() {
+    if (!user) {
+      setItems([]);
+    } else {
+      await api.delete("/api/v1/cart/clear");
+      setItems([]);
+    }
   }
 
   const totalItems = items.reduce((a, i) => a + i.quantity, 0);
   const subtotal = items.reduce((a, i) => a + i.price * i.quantity, 0);
 
-  const value = {
-    items,
-    totalItems,
-    subtotal,
-    addToCart,
-    removeFromCart,
-    clearCart,
-    increaseQuantity,
-    decreaseQuantity,
-  };
-
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider
+      value={{
+        items,
+        totalItems,
+        subtotal,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        increaseQuantity,
+        decreaseQuantity,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 }
 
 export function useCart() {
   const ctx = useContext(CartContext);
-  if (!ctx) {
-    throw new Error("useCart must be used within CartProvider");
-  }
+  if (!ctx) throw new Error("useCart must be used within CartProvider");
   return ctx;
 }

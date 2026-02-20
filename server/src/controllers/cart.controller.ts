@@ -30,6 +30,7 @@ export async function getCurrentCart(req: AuthenticatedRequest, res: Response) {
     }
 
     const formattedItems = cart.items.map((item) => ({
+      cartItemId: item.id,
       id: item.product.id,
       name: item.product.name,
       price: Number(item.product.price),
