@@ -341,9 +341,9 @@ Cart → Order conversion that is atomic, race-condition safe, price-consistent,
 
 ### Frontend (Admin Dashboard)
 
-- [ ] Admin authentication guard
-- [ ] Role-based admin UI
-- [ ] Product management page (bulk-first UI)
+- [x] Admin authentication guard
+- [x] Role-based admin UI
+- [x] Product management page (bulk-first UI)
 - [ ] CSV upload interface
 - [ ] Bulk edit grid interface
 - [ ] Inventory management panel
@@ -771,4 +771,3 @@ System that is secure, observable, resilient, scalable, and deployment-ready.
 - Change currency
 - Login with google, facebook
 - Email functionality
-- Admin panel stats and graphs
