@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { OrderStatus } from "@prisma/client";
+
 export const createOrderSchema = z.object({
   items: z
     .array(
@@ -22,3 +24,7 @@ export const createOrderSchema = z.object({
 });
 
 export type CreateOrderInput = z.infer<typeof createOrderSchema>;
+
+export const updateOrderStatusSchema = z.object({
+  status: z.enum(Object.values(OrderStatus) as [string, ...string[]]),
+});
