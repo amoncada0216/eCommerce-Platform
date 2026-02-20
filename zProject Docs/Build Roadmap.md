@@ -218,12 +218,12 @@ All product creation (1 or 1000 items) must use the bulk endpoint internally.
 
 ### Data Integrity
 
-- [ ] Enforce unique (cartId, productId) constraint
-- [ ] Validate product is active before adding
-- [ ] Validate stock before increment
-- [ ] Prevent quantity > available stock
-- [ ] Prevent negative quantity
-- [ ] Auto-delete cart item at quantity = 0
+- [x] Enforce unique (cartId, productId) constraint
+- [x] Validate product is active before adding
+- [x] Validate stock before increment
+- [x] Prevent quantity > available stock
+- [x] Prevent negative quantity
+- [x] Auto-delete cart item at quantity = 0
 
 ### Guest Cart Architecture
 
@@ -237,7 +237,7 @@ All product creation (1 or 1000 items) must use the bulk endpoint internally.
 
 ### Performance & UX
 
-- [ ] Return cart totals (subtotal, item count)
+- [x] Return cart totals (subtotal, item count)
 - [ ] Return derived pricing fields (subtotal per item)
 - [ ] Prevent stale cart at checkout
 - [ ] Auto-remove inactive products from cart
@@ -289,11 +289,11 @@ Persistent, race-condition-safe, stock-aware cart system ready for real checkout
 
 ### Security & Edge Cases
 
-- [ ] Ensure products are active before checkout
-- [ ] Ensure quantity <= available stock
-- [ ] Prevent negative stock
+- [x] Ensure products are active before checkout
+- [x] Ensure quantity <= available stock
+- [x] Prevent negative stock
 - [ ] Handle race conditions (concurrent checkouts)
-- [ ] Graceful failure rollback
+- [x] Graceful failure rollback
 
 ### Post-Checkout
 
